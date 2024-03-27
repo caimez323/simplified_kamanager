@@ -11,16 +11,43 @@ database = firebase_admin.firestore.client()
 
 
 
-doc_ref = database.collection("resources").document("common")
-with open("resources.resources.json",'r',encoding="utf-8") as file:
+to_add = {"1":"111"}
+to_add2= {"2":"222"}
+doc_ref = 0
+#database.collection("test").document("testDoc").set(to_add)
+#database.collection("test").document("testDoc").update(to_add2)
 
-    data = json.load(file)
-    for elem in data:
-        id = str(elem["id"])
-        to_add = {id : elem}
 
-        print(to_add)
-        #doc_ref.update(to_add)
-    
+theDataRessources = database.collection("resources").document("common")
+allDictDatas = theDataRessources.get().to_dict()
+print(allDictDatas)
+#with open("resources.resources.json",'r',encoding="utf-8") as file:
 
-#doc_ref.update(to_add)
+
+#for elem in data: doc_ref.set({str(elem["id"]) : elem})
+
+replaced_lines = []
+with open("resources.gears.json",'r',encoding="utf-8") as file:
+    dataSS = json.load(file)
+
+
+for element in dataSS: #each element is a dict
+    for component in element["recipe"]:
+        componentName = component["name"]
+
+        for id, ressourceContent in allDictDatas.items():
+            if ressourceContent["name"] == componentName:
+                component["id"] = id
+            
+with open("tempo.json",'w',encoding="utf-8") as resultFile:
+    resultFile.write(str (dataSS))
+
+
+#Lire chaque ligne de gears
+
+#récupérer les objects
+
+#Pour chaque objet, faire en sorte que l'id soit égale à l'id trouvée dans le ressources si le nom est le même
+
+
+
