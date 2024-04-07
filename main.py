@@ -1,24 +1,8 @@
-import firebase_admin
-from firebase_admin import firestore
-from dotenv import load_dotenv
-import os,sys
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QListWidget, QLabel
-
-
-
-
-
-def load_database():
-    cred = firebase_admin.credentials.Certificate("creditentials.json")
-    firebase_admin.initialize_app(cred,{'databaseURL': os.getenv("DATABASE_URL")})
-    database = firebase_admin.firestore.client()
-    return database
-
 import wx
 
 class ItemEditor(wx.Frame):
     def __init__(self, parent, data):
-        super().__init__(parent, title="Éditeur d'objet", size=(600, 300))
+        super().__init__(parent, title="Éditeur d'objet", size=(800, 600))
         panel = wx.Panel(self)
         main_sizer = wx.BoxSizer(wx.VERTICAL)
         
@@ -40,12 +24,16 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.InsertColumn(1, "Niveau")
         self.list_ctrl.InsertColumn(2, "Prix")
         self.list_ctrl.InsertColumn(3, "Coefficient")
+        self.list_ctrl.InsertColumn(4, "Caché")
         self.list_ctrl.SetColumnWidth(0, 200)
+        self.list_ctrl.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_toggle_hidden)
         for item in data:
             index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
             self.list_ctrl.SetItem(index, 1, str(item["level"]))
             self.list_ctrl.SetItem(index, 2, str(item["price"]))
             self.list_ctrl.SetItem(index, 3, "-1")
+            self.list_ctrl.SetItem(index, 4, "Non" if not item.get("hidden") else "Oui")  # Mettre "Oui" si hidden est True, sinon "Non"
+            self.list_ctrl.SetItemData(index, index)
 
         list_sizer.Add(self.list_ctrl, 1, wx.EXPAND | wx.ALL, 5)
         self.list_tab.SetSizer(list_sizer)
@@ -59,6 +47,18 @@ class ItemEditor(wx.Frame):
         self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.on_tab_change)
         self.list_ctrl.Bind(wx.EVT_LIST_COL_CLICK, self.on_column_click)
         main_sizer.Add(self.notebook, 1, wx.EXPAND)
+
+        # Bouton pour afficher les éléments dans la console
+        show_items_button = wx.Button(panel, label="Afficher les éléments dans la console")
+        show_items_button.Bind(wx.EVT_BUTTON, self.on_show_items)
+        main_sizer.Add(show_items_button, 0, wx.ALL | wx.CENTER, 10)
+
+        # Bouton pour cacher une ligne sélectionnée
+        
+        display_all_button = wx.Button(panel, label="Afficher toutes les lignes cachées")
+        display_all_button.Bind(wx.EVT_BUTTON, self.on_display_all)
+        main_sizer.Add(display_all_button, 0, wx.ALL | wx.CENTER, 10)
+
         panel.SetSizer(main_sizer)
 
     def on_tab_change(self, event):
@@ -93,18 +93,50 @@ class ItemEditor(wx.Frame):
         else:
             self.sort_column = column
             self.sort_order = True
-
         self.sort_items()
 
+
     def sort_items(self):
-        items = [(self.list_ctrl.GetItemText(i), int(self.list_ctrl.GetItem(i, 1).GetText()), int(self.list_ctrl.GetItem(i, 2).GetText()), int(self.list_ctrl.GetItem(i, 3).GetText()), i) for i in range(self.list_ctrl.GetItemCount())]
+        items = [(self.list_ctrl.GetItemData(i), self.list_ctrl.GetItemText(i), int(self.list_ctrl.GetItem(i, 1).GetText()), int(self.list_ctrl.GetItem(i, 2).GetText()), int(self.list_ctrl.GetItem(i, 3).GetText()), i) for i in range(self.list_ctrl.GetItemCount())]
         items.sort(key=lambda x: x[self.sort_column], reverse=not self.sort_order)
 
-        for i, (name, level, price, coeff, index) in enumerate(items):
+        for i, (_, name, level, price, coeff, index) in enumerate(items):
             self.list_ctrl.SetItem(i, 0, name)
             self.list_ctrl.SetItem(i, 1, str(level))
             self.list_ctrl.SetItem(i, 2, str(price))
             self.list_ctrl.SetItem(i, 3, str(coeff))
+            self.list_ctrl.SetItem(i, 4, self.list_ctrl.GetItem(index, 4).GetText())
+
+    def on_toggle_hidden(self, event):
+        index = event.GetIndex()
+        current_state = self.list_ctrl.GetItem(index, 4).GetText()
+        new_state = "Oui" if current_state == "Non" else "Non"
+        self.list_ctrl.SetItem(index, 4, new_state)
+        
+
+        # Mettre à jour la valeur "hidden" dans les données
+        self.data[index]["hidden"] = (new_state == "Oui")
+
+        #On fait disparaitre
+        self.list_ctrl.DeleteItem(index)
+
+    def on_show_items(self, event):
+        print("====")
+        for item in self.data:
+            print(item)
+    
+    def on_display_all(self,event):
+        for item in self.data:
+            if item["hidden"] :
+                item["hidden"] = False
+                index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+                self.list_ctrl.SetItem(index, 1, str(item["level"]))
+                self.list_ctrl.SetItem(index, 2, str(item["price"]))
+                self.list_ctrl.SetItem(index, 3, "-1")
+                self.list_ctrl.SetItem(index, 4, "Non" if not item.get("hidden") else "Oui")  # Mettre "Oui" si hidden est True, sinon "Non"
+                #self.list_ctrl.SetItemData(index, index)
+    
+             
 
 if __name__ == "__main__":
     data = [
