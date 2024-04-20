@@ -1,5 +1,12 @@
 import wx
 
+def getIndexFromName(data,name):
+    for index,value in enumerate(data):
+        if name == value["name"]:
+            return index
+
+
+
 class ItemEditor(wx.Frame):
     def __init__(self, parent, data):
         super().__init__(parent, title="Éditeur d'objet", size=(800, 600))
@@ -48,15 +55,16 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.Bind(wx.EVT_LIST_COL_CLICK, self.on_column_click)
         main_sizer.Add(self.notebook, 1, wx.EXPAND)
 
-        # Bouton pour afficher les éléments dans la console
+        #==== Boutons
+
+        # Afficher les éléments dans la console
         show_items_button = wx.Button(panel, label="Afficher les éléments dans la console")
         show_items_button.Bind(wx.EVT_BUTTON, self.on_show_items)
         main_sizer.Add(show_items_button, 0, wx.ALL | wx.CENTER, 10)
 
-        # Bouton pour cacher une ligne sélectionnée
-        
+        # Enlever l'état caché de tous les éléments
         display_all_button = wx.Button(panel, label="Afficher toutes les lignes cachées")
-        display_all_button.Bind(wx.EVT_BUTTON, self.on_display_all)
+        display_all_button.Bind(wx.EVT_BUTTON, self.on_redisplay_all)
         main_sizer.Add(display_all_button, 0, wx.ALL | wx.CENTER, 10)
 
         panel.SetSizer(main_sizer)
@@ -112,10 +120,10 @@ class ItemEditor(wx.Frame):
         current_state = self.list_ctrl.GetItem(index, 4).GetText()
         new_state = "Oui" if current_state == "Non" else "Non"
         self.list_ctrl.SetItem(index, 4, new_state)
-        
-
         # Mettre à jour la valeur "hidden" dans les données
-        self.data[index]["hidden"] = (new_state == "Oui")
+        # Cependant, l'index des data peut ne pas être le même que l'ordre qui est affiché car la grille à pu être modifiée
+        indexInDataCorrected = getIndexFromName(self.data,self.list_ctrl.GetItem(index,0).GetText())
+        self.data[indexInDataCorrected]["hidden"] = (new_state == "Oui")
 
         #On fait disparaitre
         self.list_ctrl.DeleteItem(index)
@@ -123,9 +131,9 @@ class ItemEditor(wx.Frame):
     def on_show_items(self, event):
         print("====")
         for item in self.data:
-            print(item)
+            print("{} , {}".format(item["name"],item["hidden"]))
     
-    def on_display_all(self,event):
+    def on_redisplay_all(self,event):
         for item in self.data:
             if item["hidden"] :
                 item["hidden"] = False
@@ -134,7 +142,8 @@ class ItemEditor(wx.Frame):
                 self.list_ctrl.SetItem(index, 2, str(item["price"]))
                 self.list_ctrl.SetItem(index, 3, "-1")
                 self.list_ctrl.SetItem(index, 4, "Non" if not item.get("hidden") else "Oui")  # Mettre "Oui" si hidden est True, sinon "Non"
-                #self.list_ctrl.SetItemData(index, index)
+                print(item["name"])
+                print(index)
     
              
 
@@ -156,6 +165,34 @@ if __name__ == "__main__":
         {
             "id": 2,
             "name": "Bottes d'Alchimiste",
+            "level": 12,
+            "price": 150,
+            "recipe": [
+                {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
+                {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
+            ],
+            "hidden": False,
+            "trueHidden": False,
+            "toCraft": 0
+        }
+        ,
+        {
+            "id": 3,
+            "name": "BAAA",
+            "level": 12,
+            "price": 150,
+            "recipe": [
+                {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
+                {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
+            ],
+            "hidden": False,
+            "trueHidden": False,
+            "toCraft": 0
+        }
+        ,
+        {
+            "id": 4,
+            "name": "ZZZZZZZ",
             "level": 12,
             "price": 150,
             "recipe": [
