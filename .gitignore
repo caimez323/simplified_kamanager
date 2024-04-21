@@ -2,3 +2,5 @@
 creditentials.json
 backups
 test.py
+loadedDatas.json
+__pycache__

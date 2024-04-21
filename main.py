@@ -1,5 +1,6 @@
 import wx
 
+
 def getIndexFromName(data,name):
     for index,value in enumerate(data):
         if name == value["name"]:
@@ -20,11 +21,14 @@ class ItemEditor(wx.Frame):
         self.notebook = wx.Notebook(panel)
         self.list_tab = wx.Panel(self.notebook)
         self.recipe_tab = wx.Panel(self.notebook)
+        self.resources_tab = wx.Panel(self.notebook)
+
 
         self.notebook.AddPage(self.list_tab, "Liste")
         self.notebook.AddPage(self.recipe_tab, "Recette")
+        self.notebook.AddPage(self.resources_tab, "Ressources")
 
-        # List Tab
+        # Main List
         list_sizer = wx.BoxSizer(wx.HORIZONTAL)
         self.list_ctrl = wx.ListCtrl(self.list_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.list_ctrl.InsertColumn(0, "Nom")
@@ -66,6 +70,9 @@ class ItemEditor(wx.Frame):
         display_all_button = wx.Button(panel, label="Afficher toutes les lignes cachées")
         display_all_button.Bind(wx.EVT_BUTTON, self.on_redisplay_all)
         main_sizer.Add(display_all_button, 0, wx.ALL | wx.CENTER, 10)
+
+        # 
+
 
         panel.SetSizer(main_sizer)
 
@@ -145,6 +152,8 @@ class ItemEditor(wx.Frame):
                 print(item["name"])
                 print(index)
     
+    def calcul_coeff(self):
+        pass
              
 
 if __name__ == "__main__":

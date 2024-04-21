@@ -5,20 +5,13 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-cred = credentials.Certificate("creditentials.json")
-firebase_admin.initialize_app(cred,{'databaseURL': os.getenv("DATABASE_URL")})
-db = firestore.client()
+def load_config():
+    cred = credentials.Certificate("creditentials.json")
+    firebase_admin.initialize_app(cred,{'databaseURL': os.getenv("DATABASE_URL")})
+    db = firestore.client()
+    return db
 
-
-
-doc_ref = db.collection("gears").document("common1")
-thedocDict = doc_ref.get().to_dict()
-
-max = 0
-for key, val in thedocDict.items():
-    if int(key) > int(max):
-        max = key
-        print(key)
-
-
-# == doc_ref.update(to_add)
+def get_data(db,collection,document):
+    doc_ref = db.collection(collection).document(document)
+    thedocDict = doc_ref.get().to_dict()
+    return thedocDict
