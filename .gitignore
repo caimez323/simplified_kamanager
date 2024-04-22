@@ -4,3 +4,4 @@ backups
 test.py
 loadedDatas.json
 __pycache__
+*.database

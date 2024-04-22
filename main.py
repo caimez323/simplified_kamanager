@@ -1,5 +1,5 @@
-import wx
-
+import wx,math,json
+from read import load_config,get_data
 
 def getIndexFromName(data,name):
     for index,value in enumerate(data):
@@ -9,12 +9,12 @@ def getIndexFromName(data,name):
 
 
 class ItemEditor(wx.Frame):
-    def __init__(self, parent, data):
+    def __init__(self, parent, gearsData,resourcesData):
         super().__init__(parent, title="Éditeur d'objet", size=(800, 600))
         panel = wx.Panel(self)
         main_sizer = wx.BoxSizer(wx.VERTICAL)
         
-        self.data = data
+        self.gearsData = gearsData
         self.sort_column = None
         self.sort_order = True  # True pour trier par ordre croissant, False pour trier par ordre décroissant
 
@@ -38,7 +38,7 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.InsertColumn(4, "Caché")
         self.list_ctrl.SetColumnWidth(0, 200)
         self.list_ctrl.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_toggle_hidden)
-        for item in data:
+        for item in gearsData:
             index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
             self.list_ctrl.SetItem(index, 1, str(item["level"]))
             self.list_ctrl.SetItem(index, 2, str(item["price"]))
@@ -86,7 +86,7 @@ class ItemEditor(wx.Frame):
 
     def on_select(self, event):
         index = event.GetIndex()
-        item = self.data[index]
+        item = self.gearsData[index]
         ingredients = item.get("recipe", [])
 
         self.recipe_panel.DestroyChildren()
@@ -129,19 +129,19 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.SetItem(index, 4, new_state)
         # Mettre à jour la valeur "hidden" dans les données
         # Cependant, l'index des data peut ne pas être le même que l'ordre qui est affiché car la grille à pu être modifiée
-        indexInDataCorrected = getIndexFromName(self.data,self.list_ctrl.GetItem(index,0).GetText())
-        self.data[indexInDataCorrected]["hidden"] = (new_state == "Oui")
+        indexInDataCorrected = getIndexFromName(self.gearsData,self.list_ctrl.GetItem(index,0).GetText())
+        self.gearsData[indexInDataCorrected]["hidden"] = (new_state == "Oui")
 
         #On fait disparaitre
         self.list_ctrl.DeleteItem(index)
 
     def on_show_items(self, event):
         print("====")
-        for item in self.data:
+        for item in self.gearsData:
             print("{} , {}".format(item["name"],item["hidden"]))
     
     def on_redisplay_all(self,event):
-        for item in self.data:
+        for item in self.gearsData:
             if item["hidden"] :
                 item["hidden"] = False
                 index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
@@ -156,64 +156,81 @@ class ItemEditor(wx.Frame):
         pass
              
 
+class MainFrame(wx.Frame):
+    def __init__(self):
+        super().__init__(None, title="Menu Principal", size=(300, 200))
+        
+        panel = wx.Panel(self)
+        main_sizer = wx.BoxSizer(wx.VERTICAL)
+
+        launchButton = wx.Button(panel, label="Ouvrir main")
+        launchButton.Bind(wx.EVT_BUTTON, self.on_open_editor)
+        main_sizer.Add(launchButton, 0, wx.ALL | wx.CENTER, 10)
+
+        updateButton = wx.Button(panel, label="Update database")
+        updateButton.Bind(wx.EVT_BUTTON, self.load_database)
+        main_sizer.Add(updateButton, 0, wx.ALL | wx.CENTER, 10)
+
+        panel.SetSizer(main_sizer)
+        self.Center()
+        
+    def on_open_editor(self, event):
+        data = [  # Définition des données d'exemple
+            {
+                "id": 1,
+                "name": "Amulette du Hibou",
+                "level": 8,
+                "price": 90,
+                "recipe": [
+                    {"name": "Bave de Bouftou", "quantity": 3, "id": "48"},
+                    {"name": "Relique d'Incarnam", "quantity": 3, "id": "2192"}
+                ],
+                "hidden": False,
+                "trueHidden": False,
+                "toCraft": 0
+            },
+            {
+                "id": 2,
+                "name": "Bottes d'Alchimiste",
+                "level": 12,
+                "price": 150,
+                "recipe": [
+                    {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
+                    {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
+                ],
+                "hidden": False,
+                "trueHidden": False,
+                "toCraft": 0
+            }
+        ]
+        editor_frame = ItemEditor(None, data,{})  # Crée une instance de l'éditeur d'objets
+        editor_frame.Show()  # Affiche la fenêtre de l'éditeur d'objets
+        
+    def load_database(self,event):
+        db = load_config()
+        #Load ressources
+        resources = get_data(db,"resources","common")
+        gears = {}
+        
+        #Load gears
+        for i in range(0,5):
+            tmp = get_data(db,"gears","common{}".format(i))
+            if tmp!=None:
+                for k,v in tmp.items():
+                    gears[k] = v
+
+        # resources and gears are not loaded, need to write them down
+        with open("gears.database","w") as file:
+            file.write(json.dumps(gears,indent=4))
+        with open("resources.database","w") as file:
+            file.write(json.dumps(resources,indent=4))
+            
+        print("==========\nUpdate succesfull !\n==========")
+        return resources,gears
+
 if __name__ == "__main__":
-    data = [
-        {
-            "id": 1,
-            "name": "Amulette du Hibou",
-            "level": 8,
-            "price": 90,
-            "recipe": [
-                {"name": "Bave de Bouftou", "quantity": 3, "id": "48"},
-                {"name": "Relique d'Incarnam", "quantity": 3, "id": "2192"}
-            ],
-            "hidden": False,
-            "trueHidden": False,
-            "toCraft": 0
-        },
-        {
-            "id": 2,
-            "name": "Bottes d'Alchimiste",
-            "level": 12,
-            "price": 150,
-            "recipe": [
-                {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
-                {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
-            ],
-            "hidden": False,
-            "trueHidden": False,
-            "toCraft": 0
-        }
-        ,
-        {
-            "id": 3,
-            "name": "BAAA",
-            "level": 12,
-            "price": 150,
-            "recipe": [
-                {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
-                {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
-            ],
-            "hidden": False,
-            "trueHidden": False,
-            "toCraft": 0
-        }
-        ,
-        {
-            "id": 4,
-            "name": "ZZZZZZZ",
-            "level": 12,
-            "price": 150,
-            "recipe": [
-                {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
-                {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
-            ],
-            "hidden": False,
-            "trueHidden": False,
-            "toCraft": 0
-        }
-    ]
+    
     app = wx.App()
-    frame = ItemEditor(None, data)
+    frame = MainFrame()
     frame.Show()
     app.MainLoop()
