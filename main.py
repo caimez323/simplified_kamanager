@@ -183,8 +183,7 @@ class ItemEditor(wx.Frame):
     def calcul_coeff(self,item):
         cout = 0
         for component in item["recipe"]:
-            print(component)
-            print(component["id"])
+            print(self.resourcesData[component["id"]])
             compoPrice = self.resourcesData[component["id"]]["price"]
             cout+= component["quantity"] * compoPrice
         vente = item["price"]
