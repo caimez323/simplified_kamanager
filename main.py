@@ -1,4 +1,4 @@
-import wx,math,json
+import wx,json,os
 from read import load_config,get_data
 
 def getIndexFromName(data,name):
@@ -9,7 +9,7 @@ def getIndexFromName(data,name):
 
 
 class ItemEditor(wx.Frame):
-    def __init__(self, parent, gearsData,resourcesData):
+    def __init__(self, parent, gearsData, resourcesData):
         super().__init__(parent, title="Éditeur d'objet", size=(800, 600))
         panel = wx.Panel(self)
         main_sizer = wx.BoxSizer(wx.VERTICAL)
@@ -38,7 +38,7 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.InsertColumn(4, "Caché")
         self.list_ctrl.SetColumnWidth(0, 200)
         self.list_ctrl.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_toggle_hidden)
-        for item in gearsData:
+        for id,item in self.gearsData.items():
             index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
             self.list_ctrl.SetItem(index, 1, str(item["level"]))
             self.list_ctrl.SetItem(index, 2, str(item["price"]))
@@ -203,7 +203,19 @@ class MainFrame(wx.Frame):
                 "toCraft": 0
             }
         ]
-        editor_frame = ItemEditor(None, data,{})  # Crée une instance de l'éditeur d'objets
+        
+        # look for empty database
+        if not os.path.exists("resources.database") or not os.path.exists("gears.database"):
+            print("Error : Load database First then relaunch main frame")
+            return -1
+        
+        
+        # Load local database
+        
+        gears = json.load(open("gears.database"))
+        resources = json.load(open("resources.database"))
+        
+        editor_frame = ItemEditor(None, gears,resources)  # Crée une instance de l'éditeur d'objets
         editor_frame.Show()  # Affiche la fenêtre de l'éditeur d'objets
         
     def load_database(self,event):
