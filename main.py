@@ -198,7 +198,7 @@ class ItemEditor(wx.Frame):
 
 class MainFrame(wx.Frame):
     def __init__(self):
-        super().__init__(None, title="Menu Principal", size=(300, 200))
+        super().__init__(None, title="Menu Principal", size=(300, 150))
         
         panel = wx.Panel(self)
         main_sizer = wx.BoxSizer(wx.VERTICAL)
