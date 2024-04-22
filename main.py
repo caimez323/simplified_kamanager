@@ -15,6 +15,7 @@ class ItemEditor(wx.Frame):
         main_sizer = wx.BoxSizer(wx.VERTICAL)
         
         self.gearsData = gearsData
+        self.resourcesData = resourcesData
         self.sort_column = None
         self.sort_order = True  # True pour trier par ordre croissant, False pour trier par ordre décroissant
 
@@ -49,12 +50,33 @@ class ItemEditor(wx.Frame):
         list_sizer.Add(self.list_ctrl, 1, wx.EXPAND | wx.ALL, 5)
         self.list_tab.SetSizer(list_sizer)
 
-        # Recipe Tab
-        recipe_sizer = wx.BoxSizer(wx.VERTICAL)
-        self.recipe_panel = wx.Panel(self.recipe_tab)
-        recipe_sizer.Add(self.recipe_panel, 1, wx.EXPAND | wx.ALL, 5)
-        self.recipe_tab.SetSizer(recipe_sizer)
+        # Ressource Tab
+        resource_sizer = wx.BoxSizer(wx.VERTICAL)
+    
+        self.resource_list = wx.ListCtrl(self.resources_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
+        self.resource_list.InsertColumn(0, "Nom")
+        self.resource_list.InsertColumn(1, "Prix")
+        self.resource_list.SetColumnWidth(0, 100)
+        
+        # Search control
+        self.resource_search_ctrl = wx.SearchCtrl(self.resources_tab)
+        self.resource_search_ctrl.Bind(wx.EVT_TEXT, self.on_search_resources)
+        resource_sizer.Add(self.resource_search_ctrl, 0, wx.EXPAND | wx.ALL, 5)
+        
+        # Fill datas
+        for id,item in self.resourcesData.items():
+            index = self.resource_list.InsertItem(self.resource_list.GetItemCount(), item["name"])
+            self.resource_list.SetItem(index, 1, str(item["price"]))
+            self.resource_list.SetItemData(index, index)
+        
+        resource_sizer.Add(self.resource_list, 1, wx.EXPAND | wx.ALL, 5)
+        self.resources_tab.SetSizer(resource_sizer)
 
+
+
+
+        # tab control
+        
         self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.on_tab_change)
         self.list_ctrl.Bind(wx.EVT_LIST_COL_CLICK, self.on_column_click)
         main_sizer.Add(self.notebook, 1, wx.EXPAND)
@@ -73,8 +95,17 @@ class ItemEditor(wx.Frame):
 
         # 
 
-
         panel.SetSizer(main_sizer)
+
+    def on_search_resources(self, event):
+        self.resource_list.DeleteAllItems()  # Efface tous les éléments de la liste
+
+        for item in (self.resourcesData.values()):
+            if self.resource_search_ctrl.GetValue().lower() in item["name"].lower():
+                newIndex = self.resource_list.GetItemCount()
+                self.resource_list.InsertItem(newIndex, item["name"])
+                self.resource_list.SetItem(newIndex, 1, str(item["price"]))
+                self.resource_list.SetItemData(newIndex, newIndex)
 
     def on_tab_change(self, event):
         selection = event.GetSelection()
