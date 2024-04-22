@@ -1,7 +1,5 @@
-.env
 creditentials.json
 backups
 test.py
-loadedDatas.json
 __pycache__
 *.database
