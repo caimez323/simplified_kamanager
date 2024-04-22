@@ -43,7 +43,7 @@ class ItemEditor(wx.Frame):
             index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
             self.list_ctrl.SetItem(index, 1, str(item["level"]))
             self.list_ctrl.SetItem(index, 2, str(item["price"]))
-            self.list_ctrl.SetItem(index, 3, "-1")
+            self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
             self.list_ctrl.SetItem(index, 4, "Non" if not item.get("hidden") else "Oui")  # Mettre "Oui" si hidden est True, sinon "Non"
             self.list_ctrl.SetItemData(index, index)
 
@@ -71,8 +71,6 @@ class ItemEditor(wx.Frame):
         
         resource_sizer.Add(self.resource_list, 1, wx.EXPAND | wx.ALL, 5)
         self.resources_tab.SetSizer(resource_sizer)
-
-
 
 
         # tab control
@@ -141,7 +139,6 @@ class ItemEditor(wx.Frame):
             self.sort_order = True
         self.sort_items()
 
-
     def sort_items(self):
         items = [(self.list_ctrl.GetItemData(i), self.list_ctrl.GetItemText(i), int(self.list_ctrl.GetItem(i, 1).GetText()), int(self.list_ctrl.GetItem(i, 2).GetText()), int(self.list_ctrl.GetItem(i, 3).GetText()), i) for i in range(self.list_ctrl.GetItemCount())]
         items.sort(key=lambda x: x[self.sort_column], reverse=not self.sort_order)
@@ -183,8 +180,16 @@ class ItemEditor(wx.Frame):
                 print(item["name"])
                 print(index)
     
-    def calcul_coeff(self):
-        pass
+    def calcul_coeff(self,item):
+        cout = 0
+        for component in item["recipe"]:
+            print(component)
+            print(component["id"])
+            compoPrice = self.resourcesData[component["id"]]["price"]
+            cout+= component["quantity"] * compoPrice
+        vente = item["price"]
+        
+        return vente/cout
              
 
 class MainFrame(wx.Frame):

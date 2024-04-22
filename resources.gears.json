@@ -494,7 +494,7 @@
       "id": 22,
       "name": "Amulette du Loup",
       "level": 8,
-      "price": -1,
+      "price": 0,
       "recipe": [
           {
               "name": "Bois de Frêne",
@@ -1231,9 +1231,9 @@
               "id": "310"
           },
           {
-              "name": "Plumes de Tofu",
+              "name": "Plume de Tofu",
               "quantity": 4,
-              "id": -1
+              "id": "11"
           }
       ],
       "hidden": false,
@@ -2765,7 +2765,7 @@
       ],
       "hidden": false,
       "trueHidden": false,
-      "toBeCrafted": -1
+      "toBeCrafted": 0
   },
   {
       "id": 113,
@@ -2969,9 +2969,9 @@
               "id": "514"
           },
           {
-              "name": "Plumes de Tofu",
+              "name": "Plume de Tofu",
               "quantity": 5,
-              "id": -1
+              "id": "11"
           },
           {
               "name": "Substrat de Buisson",
@@ -4093,7 +4093,7 @@
       "id": 160,
       "name": "Ambramulette Arackne",
       "level": 34,
-      "price": -1,
+      "price": 0,
       "recipe": [
           {
               "name": "Ambre d'Abraknyde",
@@ -4444,9 +4444,9 @@
               "id": "183"
           },
           {
-              "name": "Plumes de Tofu",
+              "name": "Plume de Tofu",
               "quantity": 5,
-              "id": -1
+              "id": "11"
           },
           {
               "name": "Serviette de Plage",
@@ -4604,9 +4604,9 @@
               "id": "210"
           },
           {
-              "name": "Plumes de Tofu",
+              "name": "Plume de Tofu",
               "quantity": 20,
-              "id": -1
+              "id": "11"
           },
           {
               "name": "Poils de Barbe du Bwork Mage",
@@ -14408,9 +14408,9 @@
               "id": "1567"
           },
           {
-              "name": "Plumes de Tofu",
+              "name": "Plume de Tofu",
               "quantity": 5,
-              "id": -1
+              "id": "11"
           },
           {
               "name": "Substrat de Bocage",
@@ -22811,7 +22811,7 @@
       ],
       "hidden": false,
       "trueHidden": false,
-      "toBeCrafted": -1
+      "toBeCrafted": 0
   },
   {
       "id": 702,
@@ -30430,9 +30430,9 @@
               "id": "1392"
           },
           {
-              "name": "Plumes de Tofu",
+              "name": "Plume de Tofu",
               "quantity": 5,
-              "id": -1
+              "id": "11"
           }
       ],
       "hidden": false,
@@ -47153,7 +47153,7 @@
       ],
       "hidden": false,
       "trueHidden": false,
-      "toBeCrafted": -1
+      "toBeCrafted": 0
   },
   {
       "id": 1293,
@@ -69092,7 +69092,7 @@
       ],
       "hidden": false,
       "trueHidden": false,
-      "toBeCrafted": -1
+      "toBeCrafted": 0
   },
   {
       "id": 1771,
@@ -89332,18 +89332,13 @@
       "recipe": [
           {
               "name": "Ferrite",
-              "quantity": 2,
+              "quantity": 1,
               "id": "2167"
           },
           {
-              "name": "Queue de Chapardam",
+              "name": "Fil de Soie",
               "quantity": 3,
-              "id": "2186"
-          },
-          {
-              "name": "",
-              "quantity": 0,
-              "id": -1
+              "id": "158"
           }
       ],
       "hidden": false,
@@ -109646,13 +109641,13 @@
           },
           {
               "name": "Essence d'Abraknyde Ancestral",
-              "quantity": 15,
+              "quantity": 1,
               "id": "1783"
           },
           {
-              "name": "sombre",
-              "quantity": 15,
-              "id": -1
+              "name": "Écorce d'Abrakne Sombre",
+              "quantity": 19,
+              "id": "2096"
           }
       ]
   },
