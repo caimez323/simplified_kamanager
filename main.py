@@ -1,4 +1,4 @@
-import wx,json,os
+import wx,json,os,math
 from read import load_config,get_data
 
 def getIndexFromName(data,name):
@@ -182,13 +182,18 @@ class ItemEditor(wx.Frame):
     
     def calcul_coeff(self,item):
         cout = 0
+        print("===\n")
         for component in item["recipe"]:
-            print(self.resourcesData[component["id"]])
             compoPrice = self.resourcesData[component["id"]]["price"]
             cout+= component["quantity"] * compoPrice
+            print(component["quantity"] * compoPrice)
         vente = item["price"]
-        
-        return vente/cout
+        tmp = int(math.floor(100*vente/cout))
+        if tmp<0:
+            print("=======\n{}\n".format(item["recipe"]))
+            print(item["name"])
+            exit()
+        return tmp
              
 
 class MainFrame(wx.Frame):

@@ -16,10 +16,16 @@ doc_ref = db.collection("gears").document("common1")
 for key, val in doc_ref.get().to_dict().items():
     print(key,val)
 
-with open("resources.gears.json",'r',encoding="utf-8") as file:
+with open("resources.resources.json",'r',encoding="utf-8") as file:
 
+    doc_ref = db.collection("resources").document("common")
     data = json.load(file)
-
+    for elem in data:
+        id = str(elem["id"])
+        to_add = {id : elem}
+        doc_ref.update(to_add)
+        print(to_add)
+"""
 for elem in data:
     id = str(elem["id"])
     docID = math.floor(int(id)/1000)
@@ -27,7 +33,7 @@ for elem in data:
     to_add = {id : elem}
     doc_ref.update(to_add)
     print(to_add)
-    
+    """
 
 
 # == doc_ref.update(to_add)

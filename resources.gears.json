@@ -18092,7 +18092,7 @@
       "id": 578,
       "name": "Amulette du Piou Rose",
       "level": 8,
-      "price": -2,
+      "price": 2,
       "recipe": [
           {
               "name": "Plume de Piou Rose",
@@ -28653,7 +28653,7 @@
       "id": 828,
       "name": "Blopture Coco Royale",
       "level": 80,
-      "price": -20,
+      "price": 60000,
       "recipe": [
           {
               "name": "Feuille de Blop Royal",
@@ -55349,7 +55349,7 @@
       "id": 1473,
       "name": "Muraille Feu mineure",
       "level": 50,
-      "price": -20,
+      "price": 36000,
       "recipe": [
           {
               "name": "Bourse Suspecte",
@@ -87680,15 +87680,15 @@
   },
   {
       "id": 2200,
-      "name": "Lame du Chevaucheur de Karne",
+      "name": "Lame du Gob-Trotteur",
       "level": 16,
-      "price": -2,
+      "price": 285,
       "toCraft": 0,
       "recipe": [
           {
-              "name": "Ongle de Chevaucheur de Karne",
+              "name": "Langue d'Épouvanteur",
               "quantity": 1,
-              "id": "47"
+              "id": "39"
           },
           {
               "name": "Peau de Larve Orange",
@@ -87839,7 +87839,7 @@
       "id": 2206,
       "name": "Leurnettes",
       "level": 12,
-      "price": -2,
+      "price": 647,
       "toCraft": 0,
       "recipe": [
           {
