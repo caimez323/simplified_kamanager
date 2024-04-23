@@ -129,18 +129,17 @@ class ItemEditor(wx.Frame):
         self.recipe_panel.Refresh()
 
     def on_column_click(self, event):
-        column = event.GetColumn()
-        print(column)
+        column = event.GetColumn()+1
         if column == self.sort_column:
             self.sort_order = not self.sort_order
         else:
-            self.sort_column = column -1
+            self.sort_column = column
             self.sort_order = True
         self.sort_items()
 
     def sort_items(self):
         items = [(self.list_ctrl.GetItemData(i), self.list_ctrl.GetItemText(i), int(self.list_ctrl.GetItem(i, 1).GetText()), int(self.list_ctrl.GetItem(i, 2).GetText()), int(self.list_ctrl.GetItem(i, 3).GetText()), i) for i in range(self.list_ctrl.GetItemCount())]
-        items.sort(key=lambda x: x[self.sort_column], reverse=not self.sort_order)
+        items = sorted(items, key= lambda x: x[self.sort_column], reverse= not self.sort_order)
 
         for i, (_, name, level, price, coeff, index) in enumerate(items):
             self.list_ctrl.SetItem(i, 0, name)
