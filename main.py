@@ -1,5 +1,6 @@
 import wx,json,os,math
 from read import load_config,get_data
+from connect import upload_data
 
 def getIndexFromName(dataDic,name):
     for index,value in dataDic.items():
@@ -54,7 +55,8 @@ class ItemEditor(wx.Frame):
         self.resource_list = wx.ListCtrl(self.resources_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.resource_list.InsertColumn(0, "Nom")
         self.resource_list.InsertColumn(1, "Prix")
-        self.resource_list.SetColumnWidth(0, 100)
+        self.resource_list.SetColumnWidth(0, 450)
+        self.resource_list.SetColumnWidth(1, 100)
         
         # Search control
         self.resource_search_ctrl = wx.SearchCtrl(self.resources_tab)
@@ -69,6 +71,9 @@ class ItemEditor(wx.Frame):
         
         resource_sizer.Add(self.resource_list, 1, wx.EXPAND | wx.ALL, 5)
         self.resources_tab.SetSizer(resource_sizer)
+        
+        self.resource_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED,self.on_resources_click)
+
 
 
         # tab control
@@ -89,7 +94,10 @@ class ItemEditor(wx.Frame):
         display_all_button.Bind(wx.EVT_BUTTON, self.on_redisplay_all)
         main_sizer.Add(display_all_button, 0, wx.ALL | wx.CENTER, 10)
 
-        # 
+        # Sync button
+        sync_button = wx.Button(panel, label="SYNC")
+        sync_button.Bind(wx.EVT_BUTTON, self.sync_request_data)
+        main_sizer.Add(sync_button, 0, wx.ALL | wx.CENTER, 10)
 
         panel.SetSizer(main_sizer)
 
@@ -181,6 +189,30 @@ class ItemEditor(wx.Frame):
         
         return tmp
              
+    def sync_request_data(self,data):
+        db = load_config()
+        #upload_data(db,"resources","common",data)
+        
+
+    def on_resources_click(self,event):
+        index = event.GetIndex()
+        value = self.resource_list.GetItem(index, 1).GetText()
+
+        # Créer une boîte de dialogue pour modifier le prix
+        dlg = wx.TextEntryDialog(self, f"Entrez le nouveau prix pour {self.resource_list.GetItem(index, 0).GetText()} :", "Modifier le prix", value)
+
+        # Afficher la boîte de dialogue
+        if dlg.ShowModal() == wx.ID_OK:
+            new_price = dlg.GetValue()
+            self.resource_list.SetItem(index, 1, new_price)
+            # Changer dans la var self.resourcesData
+            tIndex = getIndexFromName(self.resourcesData,self.resource_list.GetItem(index, 0).GetText())
+            self.resourcesData[tIndex]["price"] = int(new_price)
+            
+            print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
+            
+        # Fermer la boîte de dialogue
+        dlg.Destroy()
 
 class MainFrame(wx.Frame):
     def __init__(self):
@@ -193,7 +225,7 @@ class MainFrame(wx.Frame):
         launchButton.Bind(wx.EVT_BUTTON, self.on_open_editor)
         main_sizer.Add(launchButton, 0, wx.ALL | wx.CENTER, 10)
 
-        updateButton = wx.Button(panel, label="Update database")
+        updateButton = wx.Button(panel, label="Load database")
         updateButton.Bind(wx.EVT_BUTTON, self.load_database)
         main_sizer.Add(updateButton, 0, wx.ALL | wx.CENTER, 10)
 
