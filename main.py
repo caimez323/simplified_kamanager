@@ -36,7 +36,6 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.InsertColumn(1, "Niveau")
         self.list_ctrl.InsertColumn(2, "Prix")
         self.list_ctrl.InsertColumn(3, "Coefficient")
-        self.list_ctrl.InsertColumn(4, "Caché")
         self.list_ctrl.SetColumnWidth(0, 200)
         self.list_ctrl.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_toggle_hidden)
         for id,item in self.gearsData.items():
@@ -44,7 +43,6 @@ class ItemEditor(wx.Frame):
             self.list_ctrl.SetItem(index, 1, str(item["level"]))
             self.list_ctrl.SetItem(index, 2, str(item["price"]))
             self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
-            self.list_ctrl.SetItem(index, 4, "Non" if not item.get("hidden") else "Oui")  # Mettre "Oui" si hidden est True, sinon "Non"
             self.list_ctrl.SetItemData(index, index)
 
         list_sizer.Add(self.list_ctrl, 1, wx.EXPAND | wx.ALL, 5)
@@ -132,10 +130,11 @@ class ItemEditor(wx.Frame):
 
     def on_column_click(self, event):
         column = event.GetColumn()
+        print(column)
         if column == self.sort_column:
             self.sort_order = not self.sort_order
         else:
-            self.sort_column = column
+            self.sort_column = column -1
             self.sort_order = True
         self.sort_items()
 
@@ -148,7 +147,6 @@ class ItemEditor(wx.Frame):
             self.list_ctrl.SetItem(i, 1, str(level))
             self.list_ctrl.SetItem(i, 2, str(price))
             self.list_ctrl.SetItem(i, 3, str(coeff))
-            self.list_ctrl.SetItem(i, 4, self.list_ctrl.GetItem(index, 4).GetText())
 
     def on_toggle_hidden(self, event):
         index = event.GetIndex()
@@ -182,17 +180,12 @@ class ItemEditor(wx.Frame):
     
     def calcul_coeff(self,item):
         cout = 0
-        print("===\n")
         for component in item["recipe"]:
             compoPrice = self.resourcesData[component["id"]]["price"]
             cout+= component["quantity"] * compoPrice
-            print(component["quantity"] * compoPrice)
         vente = item["price"]
         tmp = int(math.floor(100*vente/cout))
-        if tmp<0:
-            print("=======\n{}\n".format(item["recipe"]))
-            print(item["name"])
-            exit()
+        
         return tmp
              
 
