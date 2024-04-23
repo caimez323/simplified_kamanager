@@ -21,6 +21,7 @@ class ItemEditor(wx.Frame):
         self.sort_order = True 
         self.toBeSync = {}
         self.DB = DB
+        self.ingredients = {}
 
         self.notebook = wx.Notebook(panel)
         self.list_tab = wx.Panel(self.notebook)
@@ -68,14 +69,27 @@ class ItemEditor(wx.Frame):
         # Fill datas
         for id,item in self.resourcesData.items():
             index = self.resource_list.InsertItem(self.resource_list.GetItemCount(), item["name"])
+            self.resource_list.SetItem(index, 0, str(item["name"]))
             self.resource_list.SetItem(index, 1, str(item["price"]))
+            
             self.resource_list.SetItemData(index, index)
         
         resource_sizer.Add(self.resource_list, 1, wx.EXPAND | wx.ALL, 5)
         self.resources_tab.SetSizer(resource_sizer)
         
-        self.resource_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED,self.on_resources_click)
+        # Recipe
+        recipe_sizer = wx.BoxSizer(wx.VERTICAL)
+        
+        self.recipe_list = wx.ListCtrl(self.recipe_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
+        self.recipe_list.InsertColumn(0, "Nom")
+        self.recipe_list.InsertColumn(1, "Act")
+        self.recipe_list.InsertColumn(2, "Need")
+        self.recipe_list.SetColumnWidth(0, 250)
+        self.recipe_list.SetColumnWidth(1, 75)
+        self.recipe_list.SetColumnWidth(2, 75)
 
+        recipe_sizer.Add(self.recipe_list, 1, wx.EXPAND | wx.ALL, 5)
+        self.recipe_tab.SetSizer(recipe_sizer)
 
         # tab control
         
@@ -106,12 +120,10 @@ class ItemEditor(wx.Frame):
         main_sizer.Add(addCraftButton, 0, wx.ALL | wx.CENTER, 10)
         
         # Craft done
-
         panel.SetSizer(main_sizer)
 
     def on_search_resources(self, event):
         self.resource_list.DeleteAllItems()  # Efface tous les éléments de la liste
-
         for item in (self.resourcesData.values()):
             if self.resource_search_ctrl.GetValue().lower() in item["name"].lower():
                 newIndex = self.resource_list.GetItemCount()
@@ -121,11 +133,17 @@ class ItemEditor(wx.Frame):
 
     def on_tab_change(self, event):
         selection = event.GetSelection()
-        if selection == 1:  # Recipe Tab
-            # Populate recipe tab
-            index = self.list_ctrl.GetFirstSelected()
-            if index != -1:
-                self.on_select(wx.ListEvent(index=index))
+        print(selection)
+        if selection == 1: # Recipe
+            #index = self.recipe_list.GetFirstSelected()
+            for item,qqt in self.ingredients.items():
+                index = self.recipe_list.InsertItem(self.recipe_list.GetItemCount(), item)
+                self.recipe_list.SetItem(index, 0 ,str(item))
+                self.recipe_list.SetItem(index, 1 ,"-1")
+                self.recipe_list.SetItem(index, 2, str(qqt))
+                self.recipe_list.SetItemData(index, index)
+            #if index != -1:
+            #    self.on_select(wx.ListEvent(index=index))
 
     def on_select(self, event):
         index = event.GetIndex()
@@ -192,10 +210,8 @@ class ItemEditor(wx.Frame):
         for component in item["recipe"]:
             compoPrice = self.resourcesData[component["id"]]["price"]
             cout+= component["quantity"] * compoPrice
-        vente = item["price"]
-        tmp = int(math.floor(100*vente/cout))
-        
-        return tmp
+            
+        return int(math.floor(100*item["price"]/cout))
              
     def sync_request_data_res(self,e):
         if self.DB == None :
@@ -227,8 +243,20 @@ class ItemEditor(wx.Frame):
         dlg.Destroy()
         
     def addToCraft(self,event):
-        #index = event.GetIndex()
-        pass
+        index = self.list_ctrl.GetFirstSelected()
+        itemName = self.list_ctrl.GetItem(index, 0).GetText()
+        item = self.gearsData[getIndexFromName(self.gearsData,itemName)]
+        
+        for component in item["recipe"]:
+            compoName = self.resourcesData[component["id"]]["name"]
+            compoQQT = component["quantity"]
+            print("Add to craft : {} X {}".format(compoName,compoQQT))
+            if compoName in self.ingredients:
+                self.ingredients[compoName] += compoQQT
+            else:
+                self.ingredients[compoName] = compoQQT
+                
+        
         
         
         
