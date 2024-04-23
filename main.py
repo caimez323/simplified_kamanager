@@ -10,7 +10,7 @@ def getIndexFromName(dataDic,name):
 
 
 class ItemEditor(wx.Frame):
-    def __init__(self, parent, gearsData, resourcesData):
+    def __init__(self, parent, gearsData, resourcesData,DB):
         super().__init__(parent, title="Éditeur d'objet", size=(800, 600))
         panel = wx.Panel(self)
         main_sizer = wx.BoxSizer(wx.VERTICAL)
@@ -18,7 +18,9 @@ class ItemEditor(wx.Frame):
         self.gearsData = gearsData
         self.resourcesData = resourcesData
         self.sort_column = None
-        self.sort_order = True  # True pour trier par ordre croissant, False pour trier par ordre décroissant
+        self.sort_order = True 
+        self.toBeSync = {}
+        self.DB = DB
 
         self.notebook = wx.Notebook(panel)
         self.list_tab = wx.Panel(self.notebook)
@@ -96,7 +98,7 @@ class ItemEditor(wx.Frame):
 
         # Sync button
         sync_button = wx.Button(panel, label="SYNC")
-        sync_button.Bind(wx.EVT_BUTTON, self.sync_request_data)
+        sync_button.Bind(wx.EVT_BUTTON, self.sync_request_data_res)
         main_sizer.Add(sync_button, 0, wx.ALL | wx.CENTER, 10)
 
         panel.SetSizer(main_sizer)
@@ -189,9 +191,15 @@ class ItemEditor(wx.Frame):
         
         return tmp
              
-    def sync_request_data(self,data):
-        db = load_config()
-        #upload_data(db,"resources","common",data)
+    def sync_request_data_res(self,e):
+        if self.DB == None :
+            self.DB = load_config()
+        datas = self.toBeSync
+        for id,value in datas.items():
+            to_add = {id:value}
+            print("Synced : {}".format(to_add))
+            upload_data(self.DB,"resources","common",to_add)
+        print("Synced DONE")
         
 
     def on_resources_click(self,event):
@@ -208,7 +216,7 @@ class ItemEditor(wx.Frame):
             # Changer dans la var self.resourcesData
             tIndex = getIndexFromName(self.resourcesData,self.resource_list.GetItem(index, 0).GetText())
             self.resourcesData[tIndex]["price"] = int(new_price)
-            
+            self.toBeSync[tIndex] = self.resourcesData[tIndex]
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
             
         # Fermer la boîte de dialogue
@@ -229,6 +237,7 @@ class MainFrame(wx.Frame):
         updateButton.Bind(wx.EVT_BUTTON, self.load_database)
         main_sizer.Add(updateButton, 0, wx.ALL | wx.CENTER, 10)
 
+        self.db = None
         panel.SetSizer(main_sizer)
         self.Center()
         
@@ -239,24 +248,23 @@ class MainFrame(wx.Frame):
             print("Error : Load database First then relaunch main frame")
             return -1
         
-        
         # Load local database
         
         gears = json.load(open("gears.database"))
         resources = json.load(open("resources.database"))
         
-        editor_frame = ItemEditor(None, gears,resources)  # Crée une instance de l'éditeur d'objets
+        editor_frame = ItemEditor(None, gears,resources,self.db)  # Crée une instance de l'éditeur d'objets
         editor_frame.Show()  # Affiche la fenêtre de l'éditeur d'objets
         
     def load_database(self,event):
-        db = load_config()
+        self.db = load_config()
         #Load ressources
-        resources = get_data(db,"resources","common")
+        resources = get_data(self.db,"resources","common")
         gears = {}
         
         #Load gears
         for i in range(0,5):
-            tmp = get_data(db,"gears","common{}".format(i))
+            tmp = get_data(self.db,"gears","common{}".format(i))
             if tmp!=None:
                 for k,v in tmp.items():
                     gears[k] = v
