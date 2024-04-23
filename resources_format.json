@@ -70,7 +70,7 @@
         "price": 0
     },
     "454": {
-        "name": "Farine d'Orge en Sucre",
+        "name": "Farine d Orge en Sucre",
         "id": 454,
         "price": 0
     },
@@ -85,7 +85,7 @@
         "price": 0
     },
     "1002": {
-        "name": "Fragment de Coquille d'Aquabralak le Guerrier",
+        "name": "Fragment de Coquille d Aquabralak le Guerrier",
         "id": 1002,
         "price": 0
     },
@@ -175,7 +175,7 @@
         "price": 0
     },
     "1900": {
-        "name": "Essence d'Ombre",
+        "name": "Essence d Ombre",
         "id": 1900,
         "price": 0
     },
@@ -260,7 +260,7 @@
         "price": 0
     },
     "229": {
-        "name": "Potion de Courant d'Air",
+        "name": "Potion de Courant d Air",
         "id": 229,
         "price": 0
     },
@@ -275,7 +275,7 @@
         "price": 0
     },
     "2093": {
-        "name": "Poil d'Abrakne",
+        "name": "Poil d Abrakne",
         "id": 2093,
         "price": 125
     },
@@ -290,7 +290,7 @@
         "price": 0
     },
     "2020": {
-        "name": "Fragment de carte d'Ali Grothor 5/5",
+        "name": "Fragment de carte d Ali Grothor 5/5",
         "id": 2020,
         "price": 0
     },
@@ -380,7 +380,7 @@
         "price": 0
     },
     "3152": {
-        "name": "Bottes d'Hogmeiser",
+        "name": "Bottes d Hogmeiser",
         "id": 3152,
         "price": 169850
     },
@@ -580,7 +580,7 @@
         "price": 889
     },
     "132": {
-        "name": "Bois d'Erable",
+        "name": "Bois d Erable",
         "id": 132,
         "price": 57
     },
@@ -665,7 +665,7 @@
         "price": 1539
     },
     "1678": {
-        "name": "Poil d'aisselle de Missiz Frizz",
+        "name": "Poil d aisselle de Missiz Frizz",
         "id": 1678,
         "price": 9999
     },
@@ -880,7 +880,7 @@
         "price": 689
     },
     "2107": {
-        "name": "Clef de l'Antre de la Reine Nyee",
+        "name": "Clef de l Antre de la Reine Nyee",
         "id": 2107,
         "price": 0
     },
@@ -905,7 +905,7 @@
         "price": 2692
     },
     "1497": {
-        "name": "Clef du Donjon des Rats du Chateau d'Amakna",
+        "name": "Clef du Donjon des Rats du Chateau d Amakna",
         "id": 1497,
         "price": 0
     },
@@ -950,7 +950,7 @@
         "price": 0
     },
     "2852": {
-        "name": "Pagne d'Alashasss",
+        "name": "Pagne d Alashasss",
         "id": 2852,
         "price": 4900
     },
@@ -975,7 +975,7 @@
         "price": 220
     },
     "316": {
-        "name": "Patte d'Arakne Majeure",
+        "name": "Patte d Arakne Majeure",
         "id": 316,
         "price": 165
     },
@@ -995,7 +995,7 @@
         "price": 23115
     },
     "1537": {
-        "name": "Emballage d'affection",
+        "name": "Emballage d affection",
         "id": 1537,
         "price": 0
     },
@@ -1010,7 +1010,7 @@
         "price": 14
     },
     "1403": {
-        "name": "Troisieme Fragment d'Air",
+        "name": "Troisieme Fragment d Air",
         "id": 1403,
         "price": 0
     },
@@ -1260,7 +1260,7 @@
         "price": 0
     },
     "3356": {
-        "name": "Ceinture de l'Amant d'Ha",
+        "name": "Ceinture de l Amant d Ha",
         "id": 3356,
         "price": 70597
     },
@@ -1315,7 +1315,7 @@
         "price": 98
     },
     "1588": {
-        "name": "Chicots d'Halouine",
+        "name": "Chicots d Halouine",
         "id": 1588,
         "price": 4999
     },
@@ -1395,7 +1395,7 @@
         "price": 0
     },
     "2121": {
-        "name": "Ambre d'Abraknyde Sombre Irascible",
+        "name": "Ambre d Abraknyde Sombre Irascible",
         "id": 2121,
         "price": 1840
     },
@@ -1615,7 +1615,7 @@
         "price": 0
     },
     "1551": {
-        "name": "Emballage d'anniversaire",
+        "name": "Emballage d anniversaire",
         "id": 1551,
         "price": 0
     },
@@ -1650,7 +1650,7 @@
         "price": 0
     },
     "324": {
-        "name": "Ambre d'Abraknyde Sombre",
+        "name": "Ambre d Abraknyde Sombre",
         "id": 324,
         "price": 2488
     },
@@ -1670,7 +1670,7 @@
         "price": 599
     },
     "2474": {
-        "name": "Carte d'Atcham",
+        "name": "Carte d Atcham",
         "id": 2474,
         "price": 0
     },
@@ -1885,12 +1885,12 @@
         "price": 1980
     },
     "152": {
-        "name": "Seve d'Abraknyde Retravaillee",
+        "name": "Seve d Abraknyde Retravaillee",
         "id": 152,
         "price": 0
     },
     "2289": {
-        "name": "Scalp d'Anatak",
+        "name": "Scalp d Anatak",
         "id": 2289,
         "price": 442000
     },
@@ -2115,7 +2115,7 @@
         "price": 484
     },
     "2145": {
-        "name": "Mandibule d'Abrakne Irascible",
+        "name": "Mandibule d Abrakne Irascible",
         "id": 2145,
         "price": 640
     },
@@ -2160,7 +2160,7 @@
         "price": 0
     },
     "1379": {
-        "name": "Premier Fragment d'Air",
+        "name": "Premier Fragment d Air",
         "id": 1379,
         "price": 0
     },
@@ -2205,7 +2205,7 @@
         "price": 0
     },
     "1181": {
-        "name": "Clef de l'Arche d'Otomai",
+        "name": "Clef de l Arche d Otomai",
         "id": 1181,
         "price": 0
     },
@@ -2245,7 +2245,7 @@
         "price": 0
     },
     "1246": {
-        "name": "Clef de l'hypogee de l'Obsidiantre",
+        "name": "Clef de l hypogee de l Obsidiantre",
         "id": 1246,
         "price": 0
     },
@@ -2300,7 +2300,7 @@
         "price": 99980
     },
     "1198": {
-        "name": "Crane d'Eniripsa",
+        "name": "Crane d Eniripsa",
         "id": 1198,
         "price": 0
     },
@@ -2385,7 +2385,7 @@
         "price": 0
     },
     "2095": {
-        "name": "Masque Casse d'Araknotron Irascible",
+        "name": "Masque Casse d Araknotron Irascible",
         "id": 2095,
         "price": 248
     },
@@ -2420,12 +2420,12 @@
         "price": 2950
     },
     "513": {
-        "name": "Fragment d'Epee Reptilienne",
+        "name": "Fragment d Epee Reptilienne",
         "id": 513,
         "price": 0
     },
     "2572": {
-        "name": "Plume d'Ilyzaelle",
+        "name": "Plume d Ilyzaelle",
         "id": 2572,
         "price": 14499
     },
@@ -2640,7 +2640,7 @@
         "price": 485
     },
     "150": {
-        "name": "Pierre d'Emeraude",
+        "name": "Pierre d Emeraude",
         "id": 150,
         "price": 65
     },
@@ -2660,7 +2660,7 @@
         "price": 0
     },
     "1838": {
-        "name": "Essence d'Obsidiantre",
+        "name": "Essence d Obsidiantre",
         "id": 1838,
         "price": 0
     },
@@ -2790,7 +2790,7 @@
         "price": 195
     },
     "1012": {
-        "name": "Pierre d'Aerotrugobur le Malveillant",
+        "name": "Pierre d Aerotrugobur le Malveillant",
         "id": 1012,
         "price": 0
     },
@@ -2910,7 +2910,7 @@
         "price": 32
     },
     "1448": {
-        "name": "Oreille d'Aperiglours",
+        "name": "Oreille d Aperiglours",
         "id": 1448,
         "price": 779
     },
@@ -2935,7 +2935,7 @@
         "price": 0
     },
     "73": {
-        "name": "Dentier du Chafer d'Elite",
+        "name": "Dentier du Chafer d Elite",
         "id": 73,
         "price": 194
     },
@@ -3040,12 +3040,12 @@
         "price": 0
     },
     "230": {
-        "name": "Potion d'Etincelle",
+        "name": "Potion d Etincelle",
         "id": 230,
         "price": 0
     },
     "675": {
-        "name": "Ver d'Air",
+        "name": "Ver d Air",
         "id": 675,
         "price": 39
     },
@@ -3165,7 +3165,7 @@
         "price": 1749
     },
     "2480": {
-        "name": "Tentacule de N'Yalg",
+        "name": "Tentacule de N Yalg",
         "id": 2480,
         "price": 740
     },
@@ -3225,7 +3225,7 @@
         "price": 0
     },
     "775": {
-        "name": "Pierre d'Aigue-Marine",
+        "name": "Pierre d Aigue-Marine",
         "id": 775,
         "price": 0
     },
@@ -3240,7 +3240,7 @@
         "price": 3585
     },
     "136": {
-        "name": "Farine d'Orge",
+        "name": "Farine d Orge",
         "id": 136,
         "price": 0
     },
@@ -3350,7 +3350,7 @@
         "price": 0
     },
     "2243": {
-        "name": "Seve d'If",
+        "name": "Seve d If",
         "id": 2243,
         "price": 0
     },
@@ -3380,7 +3380,7 @@
         "price": 0
     },
     "2565": {
-        "name": "Fragment d'Ectorche",
+        "name": "Fragment d Ectorche",
         "id": 2565,
         "price": 498
     },
@@ -3495,7 +3495,7 @@
         "price": 4498
     },
     "110": {
-        "name": "Bois d'Ebene",
+        "name": "Bois d Ebene",
         "id": 110,
         "price": 46
     },
@@ -3580,7 +3580,7 @@
         "price": 228
     },
     "986": {
-        "name": "Clef de l'Antre de Crocabulia",
+        "name": "Clef de l Antre de Crocabulia",
         "id": 986,
         "price": 0
     },
@@ -3695,7 +3695,7 @@
         "price": 0
     },
     "1769": {
-        "name": "Pelote d'Ecaflip",
+        "name": "Pelote d Ecaflip",
         "id": 1769,
         "price": 94330
     },
@@ -3705,7 +3705,7 @@
         "price": 0
     },
     "551": {
-        "name": "Bois d'Oliviolet",
+        "name": "Bois d Oliviolet",
         "id": 551,
         "price": 89
     },
@@ -3775,7 +3775,7 @@
         "price": 17905
     },
     "1601": {
-        "name": "Bourgeon d'Abraknyde Sombre Irascible",
+        "name": "Bourgeon d Abraknyde Sombre Irascible",
         "id": 1601,
         "price": 450
     },
@@ -3810,7 +3810,7 @@
         "price": 0
     },
     "1580": {
-        "name": "Ratelier d'Oogie Betty",
+        "name": "Ratelier d Oogie Betty",
         "id": 1580,
         "price": 1479
     },
@@ -3845,7 +3845,7 @@
         "price": 199
     },
     "2634": {
-        "name": "Essence d'Ilyzaelle",
+        "name": "Essence d Ilyzaelle",
         "id": 2634,
         "price": 0
     },
@@ -3970,7 +3970,7 @@
         "price": 0
     },
     "2445": {
-        "name": "Fragment de carte d'Atcham 6/8",
+        "name": "Fragment de carte d Atcham 6/8",
         "id": 2445,
         "price": 0
     },
@@ -4010,7 +4010,7 @@
         "price": 0
     },
     "94": {
-        "name": "Bourgeon d'Abraknyde",
+        "name": "Bourgeon d Abraknyde",
         "id": 94,
         "price": 2
     },
@@ -4055,7 +4055,7 @@
         "price": 199
     },
     "2077": {
-        "name": "Poils d'Hordemon",
+        "name": "Poils d Hordemon",
         "id": 2077,
         "price": 0
     },
@@ -4170,7 +4170,7 @@
         "price": 0
     },
     "142": {
-        "name": "Farine d'Avoine",
+        "name": "Farine d Avoine",
         "id": 142,
         "price": 0
     },
@@ -4235,12 +4235,12 @@
         "price": 0
     },
     "1064": {
-        "name": "Poil de Rat d'Egoutant",
+        "name": "Poil de Rat d Egoutant",
         "id": 1064,
         "price": 196
     },
     "235": {
-        "name": "Potion d'Ouragan",
+        "name": "Potion d Ouragan",
         "id": 235,
         "price": 0
     },
@@ -4315,7 +4315,7 @@
         "price": 0
     },
     "1074": {
-        "name": "Ecorce d'Abraknyde Ancestral",
+        "name": "Ecorce d Abraknyde Ancestral",
         "id": 1074,
         "price": 72
     },
@@ -4325,7 +4325,7 @@
         "price": 1
     },
     "528": {
-        "name": "Feuille de ronce d'Hestia",
+        "name": "Feuille de ronce d Hestia",
         "id": 528,
         "price": 0
     },
@@ -4430,7 +4430,7 @@
         "price": 0
     },
     "384": {
-        "name": "Carpe d'Iem videe",
+        "name": "Carpe d Iem videe",
         "id": 384,
         "price": 0
     },
@@ -4470,7 +4470,7 @@
         "price": 114
     },
     "3916": {
-        "name": "Misericorde du Chafer d'Elite",
+        "name": "Misericorde du Chafer d Elite",
         "id": 3916,
         "price": 370
     },
@@ -4495,7 +4495,7 @@
         "price": 0
     },
     "1464": {
-        "name": "Vomer d'Aperiglours",
+        "name": "Vomer d Aperiglours",
         "id": 1464,
         "price": 0
     },
@@ -4615,7 +4615,7 @@
         "price": 0
     },
     "128": {
-        "name": "Bois d'Orme",
+        "name": "Bois d Orme",
         "id": 128,
         "price": 679
     },
@@ -4685,7 +4685,7 @@
         "price": 13808
     },
     "1860": {
-        "name": "Clef de la Pyramide d'Ombre",
+        "name": "Clef de la Pyramide d Ombre",
         "id": 1860,
         "price": 0
     },
@@ -4785,7 +4785,7 @@
         "price": 0
     },
     "1254": {
-        "name": "Clef de l'Antre du Korriandre",
+        "name": "Clef de l Antre du Korriandre",
         "id": 1254,
         "price": 0
     },
@@ -4975,7 +4975,7 @@
         "price": 1599
     },
     "673": {
-        "name": "Ver d'Eau",
+        "name": "Ver d Eau",
         "id": 673,
         "price": 66
     },
@@ -4985,7 +4985,7 @@
         "price": 0
     },
     "1561": {
-        "name": "Clef du Potager d'Halouine",
+        "name": "Clef du Potager d Halouine",
         "id": 1561,
         "price": 0
     },
@@ -5125,7 +5125,7 @@
         "price": 0
     },
     "105": {
-        "name": "Bois d'If",
+        "name": "Bois d If",
         "id": 105,
         "price": 98
     },
@@ -5175,7 +5175,7 @@
         "price": 0
     },
     "1672": {
-        "name": "Cuir d'Empaille",
+        "name": "Cuir d Empaille",
         "id": 1672,
         "price": 636
     },
@@ -5190,7 +5190,7 @@
         "price": 4333
     },
     "677": {
-        "name": "Oeuf d'Araknawa",
+        "name": "Oeuf d Araknawa",
         "id": 677,
         "price": 192
     },
@@ -5245,12 +5245,12 @@
         "price": 481
     },
     "2084": {
-        "name": "Fragment de carte de l'Hyperscampe 4/8",
+        "name": "Fragment de carte de l Hyperscampe 4/8",
         "id": 2084,
         "price": 0
     },
     "2878": {
-        "name": "L'Araknacoiffe",
+        "name": "L Araknacoiffe",
         "id": 2878,
         "price": 10
     },
@@ -5310,7 +5310,7 @@
         "price": 0
     },
     "1084": {
-        "name": "Racine d'Abraknyde Ancestral",
+        "name": "Racine d Abraknyde Ancestral",
         "id": 1084,
         "price": 60
     },
@@ -5465,7 +5465,7 @@
         "price": 213
     },
     "1566": {
-        "name": "Oeil d'Ougah",
+        "name": "Oeil d Ougah",
         "id": 1566,
         "price": 8799
     },
@@ -5490,12 +5490,12 @@
         "price": 0
     },
     "2053": {
-        "name": "Clef de l'Horologium de XLII",
+        "name": "Clef de l Horologium de XLII",
         "id": 2053,
         "price": 0
     },
     "1370": {
-        "name": "Radius d'Ouilleur",
+        "name": "Radius d Ouilleur",
         "id": 1370,
         "price": 0
     },
@@ -5550,7 +5550,7 @@
         "price": 0
     },
     "2509": {
-        "name": "Etoile d'Or d'El Piko",
+        "name": "Etoile d Or d El Piko",
         "id": 2509,
         "price": 2785
     },
@@ -5570,7 +5570,7 @@
         "price": 2888
     },
     "1667": {
-        "name": "Bandeau troue d'Eau",
+        "name": "Bandeau troue d Eau",
         "id": 1667,
         "price": 0
     },
@@ -5765,7 +5765,7 @@
         "price": 0
     },
     "1332": {
-        "name": "Peau d'Ouilleur",
+        "name": "Peau d Ouilleur",
         "id": 1332,
         "price": 0
     },
@@ -5830,7 +5830,7 @@
         "price": 0
     },
     "1299": {
-        "name": "Plaque d'acier",
+        "name": "Plaque d acier",
         "id": 1299,
         "price": 29779
     },
@@ -6005,7 +6005,7 @@
         "price": 3389
     },
     "278": {
-        "name": "Racine d'Abraknyde Sombre",
+        "name": "Racine d Abraknyde Sombre",
         "id": 278,
         "price": 23
     },
@@ -6180,7 +6180,7 @@
         "price": 0
     },
     "1883": {
-        "name": "Cuir d'Eskoglyphe",
+        "name": "Cuir d Eskoglyphe",
         "id": 1883,
         "price": 353
     },
@@ -6190,7 +6190,7 @@
         "price": 0
     },
     "185": {
-        "name": "Sang d'Oni",
+        "name": "Sang d Oni",
         "id": 185,
         "price": 0
     },
@@ -6200,7 +6200,7 @@
         "price": 0
     },
     "3877": {
-        "name": "Ruban d'Uchiwang",
+        "name": "Ruban d Uchiwang",
         "id": 3877,
         "price": 0
     },
@@ -6220,7 +6220,7 @@
         "price": 650
     },
     "3153": {
-        "name": "Bottes Usees d'Hogmeiser",
+        "name": "Bottes Usees d Hogmeiser",
         "id": 3153,
         "price": 149900
     },
@@ -6280,7 +6280,7 @@
         "price": 4596
     },
     "1545": {
-        "name": "Emballage d'amour",
+        "name": "Emballage d amour",
         "id": 1545,
         "price": 0
     },
@@ -6440,7 +6440,7 @@
         "price": 1699
     },
     "1877": {
-        "name": "Clef de l'Aquadome de Merkator",
+        "name": "Clef de l Aquadome de Merkator",
         "id": 1877,
         "price": 0
     },
@@ -6545,7 +6545,7 @@
         "price": 0
     },
     "2406": {
-        "name": "Fragment de carte d'Anatak 3/5",
+        "name": "Fragment de carte d Anatak 3/5",
         "id": 2406,
         "price": 0
     },
@@ -6570,7 +6570,7 @@
         "price": 4200
     },
     "2290": {
-        "name": "Clef de l'Arbre de Moon",
+        "name": "Clef de l Arbre de Moon",
         "id": 2290,
         "price": 0
     },
@@ -6600,12 +6600,12 @@
         "price": 0
     },
     "1484": {
-        "name": "Potion d'alteration",
+        "name": "Potion d alteration",
         "id": 1484,
         "price": 0
     },
     "2389": {
-        "name": "Fragment de carte d'Anatak 1/5",
+        "name": "Fragment de carte d Anatak 1/5",
         "id": 2389,
         "price": 0
     },
@@ -6660,7 +6660,7 @@
         "price": 0
     },
     "169": {
-        "name": "Etoffe d'Ecurouille",
+        "name": "Etoffe d Ecurouille",
         "id": 169,
         "price": 949
     },
@@ -6775,7 +6775,7 @@
         "price": 473
     },
     "579": {
-        "name": "Queue de Rat d'Hyoactif",
+        "name": "Queue de Rat d Hyoactif",
         "id": 579,
         "price": 179
     },
@@ -6880,7 +6880,7 @@
         "price": 799
     },
     "2068": {
-        "name": "Batterie rechargeable de l'Hyperscampe",
+        "name": "Batterie rechargeable de l Hyperscampe",
         "id": 2068,
         "price": 721170
     },
@@ -6910,7 +6910,7 @@
         "price": 108980
     },
     "1378": {
-        "name": "Quatrieme Fragment d'Eau",
+        "name": "Quatrieme Fragment d Eau",
         "id": 1378,
         "price": 0
     },
@@ -6960,7 +6960,7 @@
         "price": 95
     },
     "37": {
-        "name": "Intestin d'Araknose",
+        "name": "Intestin d Araknose",
         "id": 37,
         "price": 249
     },
@@ -7030,7 +7030,7 @@
         "price": 0
     },
     "467": {
-        "name": "Poil d'Ouginak",
+        "name": "Poil d Ouginak",
         "id": 467,
         "price": 79
     },
@@ -7050,7 +7050,7 @@
         "price": 0
     },
     "2043": {
-        "name": "Fragment de carte d'Ali Grothor 1/5",
+        "name": "Fragment de carte d Ali Grothor 1/5",
         "id": 2043,
         "price": 0
     },
@@ -7060,7 +7060,7 @@
         "price": 449
     },
     "1173": {
-        "name": "Crane d'Ecaflip",
+        "name": "Crane d Ecaflip",
         "id": 1173,
         "price": 0
     },
@@ -7130,7 +7130,7 @@
         "price": 0
     },
     "1199": {
-        "name": "Clef de l'antre du Blop Multicolore",
+        "name": "Clef de l antre du Blop Multicolore",
         "id": 1199,
         "price": 0
     },
@@ -7180,7 +7180,7 @@
         "price": 0
     },
     "2090": {
-        "name": "Racine d'Abraknyde Venerable",
+        "name": "Racine d Abraknyde Venerable",
         "id": 2090,
         "price": 259
     },
@@ -7260,7 +7260,7 @@
         "price": 299
     },
     "2502": {
-        "name": "Fragment de carte d'Atcham 2/8",
+        "name": "Fragment de carte d Atcham 2/8",
         "id": 2502,
         "price": 0
     },
@@ -7270,7 +7270,7 @@
         "price": 0
     },
     "2274": {
-        "name": "Seve d'Oliviolet",
+        "name": "Seve d Oliviolet",
         "id": 2274,
         "price": 0
     },
@@ -7505,7 +7505,7 @@
         "price": 609
     },
     "2098": {
-        "name": "Fragment de carte de l'Hyperscampe 3/8",
+        "name": "Fragment de carte de l Hyperscampe 3/8",
         "id": 2098,
         "price": 0
     },
@@ -7560,7 +7560,7 @@
         "price": 281
     },
     "1377": {
-        "name": "Deuxieme Fragment d'Air",
+        "name": "Deuxieme Fragment d Air",
         "id": 1377,
         "price": 0
     },
@@ -7615,12 +7615,12 @@
         "price": 346
     },
     "100": {
-        "name": "Ecorce d'Abraknyde",
+        "name": "Ecorce d Abraknyde",
         "id": 100,
         "price": 99
     },
     "2042": {
-        "name": "Serre d'Ikargn",
+        "name": "Serre d Ikargn",
         "id": 2042,
         "price": 879
     },
@@ -7695,7 +7695,7 @@
         "price": 22224
     },
     "564": {
-        "name": "Oeil d'Arakmute",
+        "name": "Oeil d Arakmute",
         "id": 564,
         "price": 339
     },
@@ -7710,7 +7710,7 @@
         "price": 699
     },
     "1226": {
-        "name": "Clef de l'Antichambre des Gloursons",
+        "name": "Clef de l Antichambre des Gloursons",
         "id": 1226,
         "price": 0
     },
@@ -7885,7 +7885,7 @@
         "price": 448
     },
     "777": {
-        "name": "Pierre d'Agathe",
+        "name": "Pierre d Agathe",
         "id": 777,
         "price": 0
     },
@@ -7960,7 +7960,7 @@
         "price": 21748
     },
     "1783": {
-        "name": "Essence d'Abraknyde Ancestral",
+        "name": "Essence d Abraknyde Ancestral",
         "id": 1783,
         "price": 0
     },
@@ -8005,7 +8005,7 @@
         "price": 149
     },
     "2865": {
-        "name": "Ouvrage magique d'Aloevee Rate",
+        "name": "Ouvrage magique d Aloevee Rate",
         "id": 2865,
         "price": 799
     },
@@ -8040,7 +8040,7 @@
         "price": 0
     },
     "1025": {
-        "name": "Fragment de Coquille d'Ignelicrobur le Guerrier",
+        "name": "Fragment de Coquille d Ignelicrobur le Guerrier",
         "id": 1025,
         "price": 0
     },
@@ -8075,7 +8075,7 @@
         "price": 32
     },
     "1427": {
-        "name": "Racine d'Abrazif",
+        "name": "Racine d Abrazif",
         "id": 1427,
         "price": 1999
     },
@@ -8125,12 +8125,12 @@
         "price": 160
     },
     "1890": {
-        "name": "Fragment d'Ecaille de Courage",
+        "name": "Fragment d Ecaille de Courage",
         "id": 1890,
         "price": 0
     },
     "1851": {
-        "name": "Corne d'Ombre",
+        "name": "Corne d Ombre",
         "id": 1851,
         "price": 2699
     },
@@ -8175,7 +8175,7 @@
         "price": 5997
     },
     "451": {
-        "name": "Farine d'Avoine Aurifere",
+        "name": "Farine d Avoine Aurifere",
         "id": 451,
         "price": 0
     },
@@ -8265,7 +8265,7 @@
         "price": 0
     },
     "1255": {
-        "name": "Fragment d'Ougalurette",
+        "name": "Fragment d Ougalurette",
         "id": 1255,
         "price": 4771
     },
@@ -8310,7 +8310,7 @@
         "price": 0
     },
     "1876": {
-        "name": "Broderie d'Eskoglyphe",
+        "name": "Broderie d Eskoglyphe",
         "id": 1876,
         "price": 0
     },
@@ -8395,7 +8395,7 @@
         "price": 429
     },
     "234": {
-        "name": "Potion d'Incendie",
+        "name": "Potion d Incendie",
         "id": 234,
         "price": 0
     },
@@ -8460,12 +8460,12 @@
         "price": 330
     },
     "1271": {
-        "name": "Gland de l'Ecumouth",
+        "name": "Gland de l Ecumouth",
         "id": 1271,
         "price": 3820
     },
     "568": {
-        "name": "Pommeau d'Epee",
+        "name": "Pommeau d Epee",
         "id": 568,
         "price": 9
     },
@@ -8530,7 +8530,7 @@
         "price": 37
     },
     "2440": {
-        "name": "Cheveu d'Atcham",
+        "name": "Cheveu d Atcham",
         "id": 2440,
         "price": 769120
     },
@@ -8540,7 +8540,7 @@
         "price": 0
     },
     "1616": {
-        "name": "Paupiere d'Etoile",
+        "name": "Paupiere d Etoile",
         "id": 1616,
         "price": 139
     },
@@ -8660,7 +8660,7 @@
         "price": 0
     },
     "218": {
-        "name": "Ticket pour l'ile de Moon",
+        "name": "Ticket pour l ile de Moon",
         "id": 218,
         "price": 0
     },
@@ -8670,7 +8670,7 @@
         "price": 389
     },
     "1166": {
-        "name": "Noeud de l'Abrakleur clair",
+        "name": "Noeud de l Abrakleur clair",
         "id": 1166,
         "price": 1999
     },
@@ -8800,7 +8800,7 @@
         "price": 561
     },
     "1896": {
-        "name": "Fragment d'Ecaille d'Endurance",
+        "name": "Fragment d Ecaille d Endurance",
         "id": 1896,
         "price": 0
     },
@@ -8990,7 +8990,7 @@
         "price": 88980
     },
     "3793": {
-        "name": "Meche Rebelle d'Hell Mina",
+        "name": "Meche Rebelle d Hell Mina",
         "id": 3793,
         "price": 1438
     },
@@ -9015,7 +9015,7 @@
         "price": 0
     },
     "2036": {
-        "name": "Fragment de carte d'Ali Grothor 4/5",
+        "name": "Fragment de carte d Ali Grothor 4/5",
         "id": 2036,
         "price": 0
     },
@@ -9140,7 +9140,7 @@
         "price": 598
     },
     "2441": {
-        "name": "Fragment de carte d'Atcham 3/8",
+        "name": "Fragment de carte d Atcham 3/8",
         "id": 2441,
         "price": 0
     },
@@ -9295,7 +9295,7 @@
         "price": 382
     },
     "2193": {
-        "name": "Volve d'Aminite",
+        "name": "Volve d Aminite",
         "id": 2193,
         "price": 149
     },
@@ -9450,7 +9450,7 @@
         "price": 0
     },
     "2551": {
-        "name": "Clef du Belvedere d'Ilyzaelle",
+        "name": "Clef du Belvedere d Ilyzaelle",
         "id": 2551,
         "price": 0
     },
@@ -9725,12 +9725,12 @@
         "price": 0
     },
     "2510": {
-        "name": "Picot d'El Piko",
+        "name": "Picot d El Piko",
         "id": 2510,
         "price": 690
     },
     "706": {
-        "name": "Poudre d'Artifice",
+        "name": "Poudre d Artifice",
         "id": 706,
         "price": 0
     },
@@ -9800,7 +9800,7 @@
         "price": 0
     },
     "790": {
-        "name": "Patte d'Araknawa",
+        "name": "Patte d Araknawa",
         "id": 790,
         "price": 501
     },
@@ -9840,7 +9840,7 @@
         "price": 400
     },
     "455": {
-        "name": "Ble d'Or",
+        "name": "Ble d Or",
         "id": 455,
         "price": 0
     },
@@ -9905,7 +9905,7 @@
         "price": 0
     },
     "254": {
-        "name": "Potion d'Eboulement",
+        "name": "Potion d Eboulement",
         "id": 254,
         "price": 0
     },
@@ -9925,7 +9925,7 @@
         "price": 0
     },
     "1411": {
-        "name": "Quatrieme Fragment d'Air",
+        "name": "Quatrieme Fragment d Air",
         "id": 1411,
         "price": 0
     },
@@ -9965,7 +9965,7 @@
         "price": 0
     },
     "3398": {
-        "name": "Chance d'Ecaflip",
+        "name": "Chance d Ecaflip",
         "id": 3398,
         "price": 756
     },
@@ -10025,7 +10025,7 @@
         "price": 0
     },
     "2259": {
-        "name": "Seve d'Erable",
+        "name": "Seve d Erable",
         "id": 2259,
         "price": 0
     },
@@ -10050,7 +10050,7 @@
         "price": 182
     },
     "2146": {
-        "name": "Glande d'Arak-hai",
+        "name": "Glande d Arak-hai",
         "id": 2146,
         "price": 52
     },
@@ -10100,12 +10100,12 @@
         "price": 0
     },
     "1129": {
-        "name": "Talon d'achille de l'Abrakleur sombre",
+        "name": "Talon d achille de l Abrakleur sombre",
         "id": 1129,
         "price": 2000
     },
     "2105": {
-        "name": "Oeil d'Abrakne",
+        "name": "Oeil d Abrakne",
         "id": 2105,
         "price": 639
     },
@@ -10160,7 +10160,7 @@
         "price": 0
     },
     "1028": {
-        "name": "Clef de l'antre du Dragon Cochon",
+        "name": "Clef de l antre du Dragon Cochon",
         "id": 1028,
         "price": 0
     },
@@ -10200,7 +10200,7 @@
         "price": 154
     },
     "2026": {
-        "name": "Oeuf d'Ali Grothor",
+        "name": "Oeuf d Ali Grothor",
         "id": 2026,
         "price": 899562
     },
@@ -10220,7 +10220,7 @@
         "price": 399
     },
     "1394": {
-        "name": "Pierre d'Eau",
+        "name": "Pierre d Eau",
         "id": 1394,
         "price": 1592361
     },
@@ -10315,7 +10315,7 @@
         "price": 0
     },
     "2089": {
-        "name": "Fragment de carte de l'Hyperscampe 8/8",
+        "name": "Fragment de carte de l Hyperscampe 8/8",
         "id": 2089,
         "price": 0
     },
@@ -10380,7 +10380,7 @@
         "price": 0
     },
     "2544": {
-        "name": "Pic d'Anerice",
+        "name": "Pic d Anerice",
         "id": 2544,
         "price": 7977
     },
@@ -10415,7 +10415,7 @@
         "price": 649
     },
     "2437": {
-        "name": "Fragment de carte d'Atcham 4/8",
+        "name": "Fragment de carte d Atcham 4/8",
         "id": 2437,
         "price": 0
     },
@@ -10565,7 +10565,7 @@
         "price": 9999
     },
     "2462": {
-        "name": "Fragment de carte d'Atcham 7/8",
+        "name": "Fragment de carte d Atcham 7/8",
         "id": 2462,
         "price": 0
     },
@@ -10775,7 +10775,7 @@
         "price": 0
     },
     "2087": {
-        "name": "Fragment de carte de l'Hyperscampe 7/8",
+        "name": "Fragment de carte de l Hyperscampe 7/8",
         "id": 2087,
         "price": 0
     },
@@ -10825,7 +10825,7 @@
         "price": 0
     },
     "2125": {
-        "name": "Crane d'Eliotrope",
+        "name": "Crane d Eliotrope",
         "id": 2125,
         "price": 0
     },
@@ -10850,7 +10850,7 @@
         "price": 97
     },
     "2631": {
-        "name": "Essence d'El Piko",
+        "name": "Essence d El Piko",
         "id": 2631,
         "price": 0
     },
@@ -10925,7 +10925,7 @@
         "price": 1125
     },
     "2605": {
-        "name": "Essence d'Anerice la Shushess",
+        "name": "Essence d Anerice la Shushess",
         "id": 2605,
         "price": 0
     },
@@ -11085,7 +11085,7 @@
         "price": 0
     },
     "2192": {
-        "name": "Relique d'Incarnam",
+        "name": "Relique d Incarnam",
         "id": 2192,
         "price": 49
     },
@@ -11270,7 +11270,7 @@
         "price": 49043
     },
     "552": {
-        "name": "Patte d'Arakne des Egouts",
+        "name": "Patte d Arakne des Egouts",
         "id": 552,
         "price": 54
     },
@@ -11325,7 +11325,7 @@
         "price": 0
     },
     "2004": {
-        "name": "Venin d'Eperfide",
+        "name": "Venin d Eperfide",
         "id": 2004,
         "price": 202
     },
@@ -11410,7 +11410,7 @@
         "price": 0
     },
     "3233": {
-        "name": "La Feuille d'Automne",
+        "name": "La Feuille d Automne",
         "id": 3233,
         "price": 30427
     },
@@ -11495,7 +11495,7 @@
         "price": 199
     },
     "1000": {
-        "name": "Fragment de Coquille d'Aerohouctor le Guerrier",
+        "name": "Fragment de Coquille d Aerohouctor le Guerrier",
         "id": 1000,
         "price": 0
     },
@@ -11520,7 +11520,7 @@
         "price": 0
     },
     "2383": {
-        "name": "Fragment de carte d'Anatak 5/5",
+        "name": "Fragment de carte d Anatak 5/5",
         "id": 2383,
         "price": 0
     },
@@ -11560,7 +11560,7 @@
         "price": 449
     },
     "264": {
-        "name": "Symbole de l'etrange",
+        "name": "Symbole de l etrange",
         "id": 264,
         "price": 0
     },
@@ -11695,7 +11695,7 @@
         "price": 0
     },
     "576": {
-        "name": "Chaine de l'Ouginak",
+        "name": "Chaine de l Ouginak",
         "id": 576,
         "price": 200
     },
@@ -12105,7 +12105,7 @@
         "price": 198
     },
     "30": {
-        "name": "Patte d'Arakne",
+        "name": "Patte d Arakne",
         "id": 30,
         "price": 840
     },
@@ -12245,7 +12245,7 @@
         "price": 6254
     },
     "1892": {
-        "name": "Fragment d'Ecaille de Ferocite",
+        "name": "Fragment d Ecaille de Ferocite",
         "id": 1892,
         "price": 0
     },
@@ -12285,7 +12285,7 @@
         "price": 1499
     },
     "1304": {
-        "name": "Queue d'Ecumouth",
+        "name": "Queue d Ecumouth",
         "id": 1304,
         "price": 999
     },
@@ -12480,12 +12480,12 @@
         "price": 0
     },
     "39": {
-        "name": "Langue d'Epouvanteur",
+        "name": "Langue d Epouvanteur",
         "id": 39,
         "price": 14
     },
     "2063": {
-        "name": "Clef de l'Oeil de Vortex",
+        "name": "Clef de l Oeil de Vortex",
         "id": 2063,
         "price": 0
     },
@@ -12690,7 +12690,7 @@
         "price": 10031
     },
     "2478": {
-        "name": "Bois d'Aquajou",
+        "name": "Bois d Aquajou",
         "id": 2478,
         "price": 622
     },
@@ -12735,7 +12735,7 @@
         "price": 0
     },
     "2573": {
-        "name": "Restes d'Esprigne",
+        "name": "Restes d Esprigne",
         "id": 2573,
         "price": 617
     },
@@ -12850,7 +12850,7 @@
         "price": 0
     },
     "1936": {
-        "name": "Poils de Barbe d'Enutrofor",
+        "name": "Poils de Barbe d Enutrofor",
         "id": 1936,
         "price": 0
     },
@@ -12860,7 +12860,7 @@
         "price": 0
     },
     "1770": {
-        "name": "Essence de Mob l'Eponge",
+        "name": "Essence de Mob l Eponge",
         "id": 1770,
         "price": 0
     },
@@ -12875,7 +12875,7 @@
         "price": 0
     },
     "1640": {
-        "name": "Journal Intime d'Emeraude",
+        "name": "Journal Intime d Emeraude",
         "id": 1640,
         "price": 445
     },
@@ -12935,7 +12935,7 @@
         "price": 0
     },
     "2019": {
-        "name": "Fragment de carte d'Ali Grothor 2/5",
+        "name": "Fragment de carte d Ali Grothor 2/5",
         "id": 2019,
         "price": 0
     },
@@ -12960,12 +12960,12 @@
         "price": 1500
     },
     "2417": {
-        "name": "Fragment de carte d'Anatak 2/5",
+        "name": "Fragment de carte d Anatak 2/5",
         "id": 2417,
         "price": 0
     },
     "1417": {
-        "name": "Pierre d'Air",
+        "name": "Pierre d Air",
         "id": 1417,
         "price": 13560036
     },
@@ -13005,7 +13005,7 @@
         "price": 0
     },
     "1205": {
-        "name": "Crane d'Enutrof",
+        "name": "Crane d Enutrof",
         "id": 1205,
         "price": 0
     },
@@ -13120,7 +13120,7 @@
         "price": 0
     },
     "2092": {
-        "name": "Fragment de carte de l'Hyperscampe 2/8",
+        "name": "Fragment de carte de l Hyperscampe 2/8",
         "id": 2092,
         "price": 0
     },
@@ -13130,7 +13130,7 @@
         "price": 3330
     },
     "508": {
-        "name": "Langue d'Etoile",
+        "name": "Langue d Etoile",
         "id": 508,
         "price": 599
     },
@@ -13195,7 +13195,7 @@
         "price": 0
     },
     "1155": {
-        "name": "Graine de l'Abrakleur sombre",
+        "name": "Graine de l Abrakleur sombre",
         "id": 1155,
         "price": 203
     },
@@ -13210,7 +13210,7 @@
         "price": 0
     },
     "1396": {
-        "name": "Deuxieme Fragment d'Eau",
+        "name": "Deuxieme Fragment d Eau",
         "id": 1396,
         "price": 0
     },
@@ -13335,7 +13335,7 @@
         "price": 0
     },
     "1328": {
-        "name": "Vertebre d'Obsidiantre",
+        "name": "Vertebre d Obsidiantre",
         "id": 1328,
         "price": 11000
     },
@@ -13375,7 +13375,7 @@
         "price": 90
     },
     "1441": {
-        "name": "Ecorce d'Abrazif",
+        "name": "Ecorce d Abrazif",
         "id": 1441,
         "price": 388
     },
@@ -13430,7 +13430,7 @@
         "price": 0
     },
     "111": {
-        "name": "Ambre d'Abraknyde",
+        "name": "Ambre d Abraknyde",
         "id": 111,
         "price": 102
     },
@@ -13580,7 +13580,7 @@
         "price": 220
     },
     "1288": {
-        "name": "Pierre d'Atomystique",
+        "name": "Pierre d Atomystique",
         "id": 1288,
         "price": 1211
     },
@@ -13650,7 +13650,7 @@
         "price": 698
     },
     "1897": {
-        "name": "Bitte d'amarrage",
+        "name": "Bitte d amarrage",
         "id": 1897,
         "price": 0
     },
@@ -13680,7 +13680,7 @@
         "price": 260
     },
     "507": {
-        "name": "Fragment d'Os",
+        "name": "Fragment d Os",
         "id": 507,
         "price": 96
     },
@@ -13690,7 +13690,7 @@
         "price": 5899
     },
     "2104": {
-        "name": "Toile d'Abrakne Sombre",
+        "name": "Toile d Abrakne Sombre",
         "id": 2104,
         "price": 499
     },
@@ -13725,7 +13725,7 @@
         "price": 0
     },
     "2086": {
-        "name": "Fragment de carte de l'Hyperscampe 6/8",
+        "name": "Fragment de carte de l Hyperscampe 6/8",
         "id": 2086,
         "price": 0
     },
@@ -13910,7 +13910,7 @@
         "price": 0
     },
     "446": {
-        "name": "Pichon Eud'Compet",
+        "name": "Pichon Eud Compet",
         "id": 446,
         "price": 0
     },
@@ -14005,12 +14005,12 @@
         "price": 0
     },
     "1171": {
-        "name": "Culotte a l'envers du Roissingue",
+        "name": "Culotte a l envers du Roissingue",
         "id": 1171,
         "price": 128657
     },
     "2385": {
-        "name": "Carte d'Anatak",
+        "name": "Carte d Anatak",
         "id": 2385,
         "price": 0
     },
@@ -14055,7 +14055,7 @@
         "price": 576
     },
     "1875": {
-        "name": "Essence d'Ougah",
+        "name": "Essence d Ougah",
         "id": 1875,
         "price": 0
     },
@@ -14125,7 +14125,7 @@
         "price": 0
     },
     "325": {
-        "name": "Patte d'Arakne Magique",
+        "name": "Patte d Arakne Magique",
         "id": 325,
         "price": 389
     },
@@ -14140,7 +14140,7 @@
         "price": 52
     },
     "392": {
-        "name": "Carpe d'Iem",
+        "name": "Carpe d Iem",
         "id": 392,
         "price": 0
     },
@@ -14180,12 +14180,12 @@
         "price": 99980
     },
     "1062": {
-        "name": "Peau de Ramane d'Egoutant",
+        "name": "Peau de Ramane d Egoutant",
         "id": 1062,
         "price": 1032
     },
     "1554": {
-        "name": "Rouflaquettes d'Halouine",
+        "name": "Rouflaquettes d Halouine",
         "id": 1554,
         "price": 998
     },
@@ -14205,7 +14205,7 @@
         "price": 1790
     },
     "2245": {
-        "name": "Seve d'Orme",
+        "name": "Seve d Orme",
         "id": 2245,
         "price": 0
     },
@@ -14495,7 +14495,7 @@
         "price": 1217
     },
     "1555": {
-        "name": "Emballage d'amitie",
+        "name": "Emballage d amitie",
         "id": 1555,
         "price": 0
     },
@@ -14755,7 +14755,7 @@
         "price": 223
     },
     "1014": {
-        "name": "Pierre d'Ignerkocropos l'Affame",
+        "name": "Pierre d Ignerkocropos l Affame",
         "id": 1014,
         "price": 0
     },
@@ -14990,7 +14990,7 @@
         "price": 0
     },
     "2083": {
-        "name": "Fragment de carte de l'Hyperscampe 5/8",
+        "name": "Fragment de carte de l Hyperscampe 5/8",
         "id": 2083,
         "price": 0
     },
@@ -15145,7 +15145,7 @@
         "price": 0
     },
     "2447": {
-        "name": "Fragment de carte d'Atcham 5/8",
+        "name": "Fragment de carte d Atcham 5/8",
         "id": 2447,
         "price": 0
     },
@@ -15245,7 +15245,7 @@
         "price": 0
     },
     "1334": {
-        "name": "Scorie d'Obsidiantre",
+        "name": "Scorie d Obsidiantre",
         "id": 1334,
         "price": 3800
     },
@@ -15270,12 +15270,12 @@
         "price": 0
     },
     "2031": {
-        "name": "Fragment de carte d'Ali Grothor 3/5",
+        "name": "Fragment de carte d Ali Grothor 3/5",
         "id": 2031,
         "price": 0
     },
     "2390": {
-        "name": "Fragment de carte d'Anatak 4/5",
+        "name": "Fragment de carte d Anatak 4/5",
         "id": 2390,
         "price": 0
     },
@@ -15380,7 +15380,7 @@
         "price": 0
     },
     "1631": {
-        "name": "Crane d'Aventurier",
+        "name": "Crane d Aventurier",
         "id": 1631,
         "price": 498
     },
@@ -15975,7 +15975,7 @@
         "price": 919
     },
     "2493": {
-        "name": "Fragment de carte d'Atcham 8/8",
+        "name": "Fragment de carte d Atcham 8/8",
         "id": 2493,
         "price": 0
     },
@@ -16030,7 +16030,7 @@
         "price": 127
     },
     "95": {
-        "name": "Pointe de Fleche du Chafer d'Elite",
+        "name": "Pointe de Fleche du Chafer d Elite",
         "id": 95,
         "price": 249
     },
@@ -16190,7 +16190,7 @@
         "price": 297
     },
     "1083": {
-        "name": "Bourgeon d'Abraknyde Ancestral",
+        "name": "Bourgeon d Abraknyde Ancestral",
         "id": 1083,
         "price": 872
     },
@@ -16225,7 +16225,7 @@
         "price": 76
     },
     "1673": {
-        "name": "Coeur d'Empaille",
+        "name": "Coeur d Empaille",
         "id": 1673,
         "price": 3687
     },
@@ -16380,7 +16380,7 @@
         "price": 0
     },
     "2252": {
-        "name": "Seve d'Ebene",
+        "name": "Seve d Ebene",
         "id": 2252,
         "price": 0
     },
@@ -16400,7 +16400,7 @@
         "price": 0
     },
     "2486": {
-        "name": "Fragment de carte d'Atcham 1/8",
+        "name": "Fragment de carte d Atcham 1/8",
         "id": 2486,
         "price": 0
     },
@@ -16600,7 +16600,7 @@
         "price": 0
     },
     "1513": {
-        "name": "Jaune d'Oeuf de Krokille",
+        "name": "Jaune d Oeuf de Krokille",
         "id": 1513,
         "price": 4894
     },
@@ -16645,7 +16645,7 @@
         "price": 0
     },
     "1111": {
-        "name": "Peau de Mob l'Eponge",
+        "name": "Peau de Mob l Eponge",
         "id": 1111,
         "price": 128
     },
@@ -16685,7 +16685,7 @@
         "price": 280
     },
     "2050": {
-        "name": "Pixel d'Eklatleth",
+        "name": "Pixel d Eklatleth",
         "id": 2050,
         "price": 1647
     },
@@ -16695,7 +16695,7 @@
         "price": 0
     },
     "1176": {
-        "name": "Crane d'Osamodas",
+        "name": "Crane d Osamodas",
         "id": 1176,
         "price": 0
     },
@@ -16715,7 +16715,7 @@
         "price": 999
     },
     "1568": {
-        "name": "Emballage d'excuses",
+        "name": "Emballage d excuses",
         "id": 1568,
         "price": 0
     },
@@ -16750,7 +16750,7 @@
         "price": 160
     },
     "1167": {
-        "name": "Souche de l'Abrakleur clair",
+        "name": "Souche de l Abrakleur clair",
         "id": 1167,
         "price": 3499
     },
@@ -17195,7 +17195,7 @@
         "price": 4400
     },
     "1995": {
-        "name": "Carte d'Ali Grothor",
+        "name": "Carte d Ali Grothor",
         "id": 1995,
         "price": 0
     },
@@ -17235,7 +17235,7 @@
         "price": 0
     },
     "3533": {
-        "name": "L'Epee Rilleuse",
+        "name": "L Epee Rilleuse",
         "id": 3533,
         "price": 0
     },
@@ -17280,12 +17280,12 @@
         "price": 0
     },
     "2091": {
-        "name": "Ecorce d'Abraknyde Venerable",
+        "name": "Ecorce d Abraknyde Venerable",
         "id": 2091,
         "price": 327
     },
     "1355": {
-        "name": "Tephra d'Atomystique",
+        "name": "Tephra d Atomystique",
         "id": 1355,
         "price": 1378
     },
@@ -17390,7 +17390,7 @@
         "price": 1321
     },
     "2094": {
-        "name": "Carte de l'Hyperscampe",
+        "name": "Carte de l Hyperscampe",
         "id": 2094,
         "price": 0
     },
@@ -17560,7 +17560,7 @@
         "price": 678
     },
     "2507": {
-        "name": "Ecailles d'Ouroboulos",
+        "name": "Ecailles d Ouroboulos",
         "id": 2507,
         "price": 989
     },
@@ -17575,7 +17575,7 @@
         "price": 0
     },
     "2407": {
-        "name": "Crane d'Huppermage",
+        "name": "Crane d Huppermage",
         "id": 2407,
         "price": 0
     },
@@ -17690,7 +17690,7 @@
         "price": 0
     },
     "97": {
-        "name": "Racine d'Abraknyde",
+        "name": "Racine d Abraknyde",
         "id": 97,
         "price": 181
     },
@@ -17725,7 +17725,7 @@
         "price": 4749
     },
     "2367": {
-        "name": "Larve petrifiee d'Ecaflipuce",
+        "name": "Larve petrifiee d Ecaflipuce",
         "id": 2367,
         "price": 0
     },
@@ -17845,7 +17845,7 @@
         "price": 3550
     },
     "2110": {
-        "name": "Patte d'Abrakne Irascible",
+        "name": "Patte d Abrakne Irascible",
         "id": 2110,
         "price": 807
     },
@@ -17910,7 +17910,7 @@
         "price": 50
     },
     "1647": {
-        "name": "Bandeau troue d'Air",
+        "name": "Bandeau troue d Air",
         "id": 1647,
         "price": 0
     },
@@ -17995,7 +17995,7 @@
         "price": 0
     },
     "1982": {
-        "name": "Slip d'Elsoummo",
+        "name": "Slip d Elsoummo",
         "id": 1982,
         "price": 478
     },
@@ -18005,7 +18005,7 @@
         "price": 979
     },
     "2123": {
-        "name": "Masque Brise d'Araknotron",
+        "name": "Masque Brise d Araknotron",
         "id": 2123,
         "price": 180
     },
@@ -18370,7 +18370,7 @@
         "price": 430
     },
     "990": {
-        "name": "Clef de l'Epreuve de Draegnerys",
+        "name": "Clef de l Epreuve de Draegnerys",
         "id": 990,
         "price": 0
     },
@@ -18445,7 +18445,7 @@
         "price": 0
     },
     "60": {
-        "name": "Poils d'Arakne Malade",
+        "name": "Poils d Arakne Malade",
         "id": 60,
         "price": 459
     },
@@ -18506,7 +18506,7 @@
         "price": 787
     },
     "2096": {
-        "name": "Ecorce d'Abrakne Sombre",
+        "name": "Ecorce d Abrakne Sombre",
         "id": 2096,
         "price": 222
     },
@@ -18566,7 +18566,7 @@
         "price": 994
     },
     "1207": {
-        "name": "Epine d'Ougah",
+        "name": "Epine d Ougah",
         "id": 1207,
         "price": 607
     },
@@ -18641,7 +18641,7 @@
         "price": 0
     },
     "1414": {
-        "name": "Troisieme Fragment d'Eau",
+        "name": "Troisieme Fragment d Eau",
         "id": 1414,
         "price": 0
     },
@@ -18711,7 +18711,7 @@
         "price": 0
     },
     "232": {
-        "name": "Potion d'Averse",
+        "name": "Potion d Averse",
         "id": 232,
         "price": 0
     },
@@ -18746,12 +18746,12 @@
         "price": 0
     },
     "2132": {
-        "name": "Cheliceres d'Arapex",
+        "name": "Cheliceres d Arapex",
         "id": 2132,
         "price": 99
     },
     "1001": {
-        "name": "Pierre d'Aqualikros l'Impitoyable",
+        "name": "Pierre d Aqualikros l Impitoyable",
         "id": 1001,
         "price": 0
     },
@@ -18776,7 +18776,7 @@
         "price": 49
     },
     "2097": {
-        "name": "Fragment de carte de l'Hyperscampe 1/8",
+        "name": "Fragment de carte de l Hyperscampe 1/8",
         "id": 2097,
         "price": 0
     },
@@ -18811,7 +18811,7 @@
         "price": 249
     },
     "1423": {
-        "name": "Premier Fragment d'Eau",
+        "name": "Premier Fragment d Eau",
         "id": 1423,
         "price": 0
     },

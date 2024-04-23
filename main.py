@@ -1,8 +1,8 @@
 import wx,json,os,math
 from read import load_config,get_data
 
-def getIndexFromName(data,name):
-    for index,value in enumerate(data):
+def getIndexFromName(dataDic,name):
+    for index,value in dataDic.items():
         if name == value["name"]:
             return index
 
@@ -139,7 +139,7 @@ class ItemEditor(wx.Frame):
 
     def sort_items(self):
         items = [(self.list_ctrl.GetItemData(i), self.list_ctrl.GetItemText(i), int(self.list_ctrl.GetItem(i, 1).GetText()), int(self.list_ctrl.GetItem(i, 2).GetText()), int(self.list_ctrl.GetItem(i, 3).GetText()), i) for i in range(self.list_ctrl.GetItemCount())]
-        items = sorted(items, key= lambda x: x[self.sort_column], reverse= not self.sort_order)
+        items = sorted(items, key= lambda x: x[self.sort_column], reverse = self.sort_order)
 
         for i, (_, name, level, price, coeff, index) in enumerate(items):
             self.list_ctrl.SetItem(i, 0, name)
@@ -149,34 +149,28 @@ class ItemEditor(wx.Frame):
 
     def on_toggle_hidden(self, event):
         index = event.GetIndex()
-        current_state = self.list_ctrl.GetItem(index, 4).GetText()
-        new_state = "Oui" if current_state == "Non" else "Non"
-        self.list_ctrl.SetItem(index, 4, new_state)
         # Mettre à jour la valeur "hidden" dans les données
         # Cependant, l'index des data peut ne pas être le même que l'ordre qui est affiché car la grille à pu être modifiée
         indexInDataCorrected = getIndexFromName(self.gearsData,self.list_ctrl.GetItem(index,0).GetText())
-        self.gearsData[indexInDataCorrected]["hidden"] = (new_state == "Oui")
+        self.gearsData[indexInDataCorrected]["hidden"] = True
 
         #On fait disparaitre
         self.list_ctrl.DeleteItem(index)
 
     def on_show_items(self, event):
         print("====")
-        for item in self.gearsData:
+        for key,item in self.gearsData.items():
             print("{} , {}".format(item["name"],item["hidden"]))
     
     def on_redisplay_all(self,event):
-        for item in self.gearsData:
+        for key,item in self.gearsData.items():
             if item["hidden"] :
                 item["hidden"] = False
                 index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
                 self.list_ctrl.SetItem(index, 1, str(item["level"]))
                 self.list_ctrl.SetItem(index, 2, str(item["price"]))
-                self.list_ctrl.SetItem(index, 3, "-1")
-                self.list_ctrl.SetItem(index, 4, "Non" if not item.get("hidden") else "Oui")  # Mettre "Oui" si hidden est True, sinon "Non"
-                print(item["name"])
-                print(index)
-    
+                self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
+                
     def calcul_coeff(self,item):
         cout = 0
         for component in item["recipe"]:
@@ -207,34 +201,6 @@ class MainFrame(wx.Frame):
         self.Center()
         
     def on_open_editor(self, event):
-        data = [  # Définition des données d'exemple
-            {
-                "id": 1,
-                "name": "Amulette du Hibou",
-                "level": 8,
-                "price": 90,
-                "recipe": [
-                    {"name": "Bave de Bouftou", "quantity": 3, "id": "48"},
-                    {"name": "Relique d'Incarnam", "quantity": 3, "id": "2192"}
-                ],
-                "hidden": False,
-                "trueHidden": False,
-                "toCraft": 0
-            },
-            {
-                "id": 2,
-                "name": "Bottes d'Alchimiste",
-                "level": 12,
-                "price": 150,
-                "recipe": [
-                    {"name": "Bave de Bouftou", "quantity": 4, "id": "48"},
-                    {"name": "Cuir de Boufton Noir", "quantity": 3, "id": "2202"}
-                ],
-                "hidden": False,
-                "trueHidden": False,
-                "toCraft": 0
-            }
-        ]
         
         # look for empty database
         if not os.path.exists("resources.database") or not os.path.exists("gears.database"):
