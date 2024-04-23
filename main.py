@@ -60,6 +60,8 @@ class ItemEditor(wx.Frame):
         self.resource_list.InsertColumn(1, "Prix")
         self.resource_list.SetColumnWidth(0, 450)
         self.resource_list.SetColumnWidth(1, 100)
+
+        self.resource_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_resources_click)
         
         # Search control
         self.resource_search_ctrl = wx.SearchCtrl(self.resources_tab)
@@ -221,6 +223,7 @@ class ItemEditor(wx.Frame):
             to_add = {id:value}
             print("Synced : {}".format(to_add))
             upload_data(self.DB,"resources","common",to_add)
+        self.toBeSync = {}
         print("Synced DONE")
         
     def on_resources_click(self,event):
