@@ -18,13 +18,7 @@ for key, val in doc_ref.get().to_dict().items():
 
 with open("resources.resources.json",'r',encoding="utf-8") as file:
 
-    doc_ref = db.collection("resources").document("common")
     data = json.load(file)
-    for elem in data:
-        id = str(elem["id"])
-        to_add = {id : elem}
-        doc_ref.update(to_add)
-        print(to_add)
 """
 for elem in data:
     id = str(elem["id"])
@@ -34,6 +28,12 @@ for elem in data:
     doc_ref.update(to_add)
     print(to_add)
     """
+doc_ref = db.collection("resources").document("common")
+for elem in data:
+    id = str(elem["id"])
+    to_add = {id : elem}
+    doc_ref.update(to_add)
+    print(to_add)
 
 
 # == doc_ref.update(to_add)
