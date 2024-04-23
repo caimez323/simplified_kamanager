@@ -77,7 +77,6 @@ class ItemEditor(wx.Frame):
         self.resource_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED,self.on_resources_click)
 
 
-
         # tab control
         
         self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.on_tab_change)
@@ -100,6 +99,13 @@ class ItemEditor(wx.Frame):
         sync_button = wx.Button(panel, label="SYNC")
         sync_button.Bind(wx.EVT_BUTTON, self.sync_request_data_res)
         main_sizer.Add(sync_button, 0, wx.ALL | wx.CENTER, 10)
+        
+        # Add to craft
+        addCraftButton = wx.Button(panel, label="Craft")
+        addCraftButton.Bind(wx.EVT_BUTTON, self.addToCraft)
+        main_sizer.Add(addCraftButton, 0, wx.ALL | wx.CENTER, 10)
+        
+        # Craft done
 
         panel.SetSizer(main_sizer)
 
@@ -201,7 +207,6 @@ class ItemEditor(wx.Frame):
             upload_data(self.DB,"resources","common",to_add)
         print("Synced DONE")
         
-
     def on_resources_click(self,event):
         index = event.GetIndex()
         value = self.resource_list.GetItem(index, 1).GetText()
@@ -218,9 +223,15 @@ class ItemEditor(wx.Frame):
             self.resourcesData[tIndex]["price"] = int(new_price)
             self.toBeSync[tIndex] = self.resourcesData[tIndex]
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
-            
-        # Fermer la boîte de dialogue
+        # Close
         dlg.Destroy()
+        
+    def addToCraft(self,event):
+        #index = event.GetIndex()
+        pass
+        
+        
+        
 
 class MainFrame(wx.Frame):
     def __init__(self):
