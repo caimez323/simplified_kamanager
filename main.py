@@ -122,6 +122,8 @@ class ItemEditor(wx.Frame):
         main_sizer.Add(addCraftButton, 0, wx.ALL | wx.CENTER, 10)
         
         # Craft done
+        
+        
         panel.SetSizer(main_sizer)
 
     def on_search_resources(self, event):
@@ -135,7 +137,7 @@ class ItemEditor(wx.Frame):
 
     def on_tab_change(self, event):
         selection = event.GetSelection()
-        print(selection)
+        self.recipe_list.DeleteAllItems()
         if selection == 1: # Recipe
             #index = self.recipe_list.GetFirstSelected()
             for item,qqt in self.ingredients.items():
@@ -261,9 +263,6 @@ class ItemEditor(wx.Frame):
                 
         
         
-        
-        
-
 class MainFrame(wx.Frame):
     def __init__(self):
         super().__init__(None, title="Menu Principal", size=(300, 150))
