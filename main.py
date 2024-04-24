@@ -19,7 +19,7 @@ class ItemEditor(wx.Frame):
         self.resourcesData = resourcesData
         self.sort_column = None
         self.sort_order = True 
-        self.toBeSync = {}
+        self.toBeSync = {"resources" : {}, "gears": {}}
         self.DB = DB
         self.ingredients = {}
 
@@ -221,12 +221,15 @@ class ItemEditor(wx.Frame):
     def sync_request_data_res(self,e):
         if self.DB == None :
             self.DB = load_config()
-        datas = self.toBeSync
-        for id,value in datas.items():
+        toBeSyncResources = self.toBeSync["resources"]
+        toBeSyncGears = self.toBeSync["gears"]
+
+        for id,value in toBeSyncResources.items():
             to_add = {id:value}
             print("Synced : {}".format(to_add))
             upload_data(self.DB,"resources","common",to_add)
-        self.toBeSync = {}
+        # do the same thing for gears
+        self.toBeSync = {"resources" :{},"gears" : {}}
         print("Synced DONE")
         
     def on_resources_click(self,event):
@@ -243,7 +246,7 @@ class ItemEditor(wx.Frame):
             # Changer dans la var self.resourcesData
             tIndex = getIndexFromName(self.resourcesData,self.resource_list.GetItem(index, 0).GetText())
             self.resourcesData[tIndex]["price"] = int(new_price)
-            self.toBeSync[tIndex] = self.resourcesData[tIndex]
+            self.toBeSync["resources"][tIndex] = self.resourcesData[tIndex]
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
         # Close
         dlg.Destroy()
@@ -271,7 +274,27 @@ class ItemEditor(wx.Frame):
         self.recipe_list.DeleteItem(index)
         
     def on_change_gear(self,event):
-        pass
+        index = self.list_ctrl.GetFirstSelected()
+        value = self.list_ctrl.GetItem(index, 2).GetText()
+        itemName = self.list_ctrl.GetItem(index, 0).GetText()
+
+        # Créer une boîte de dialogue pour modifier le prix
+        dlg = wx.TextEntryDialog(self, f"Entrez le nouveau prix pour {self.list_ctrl.GetItem(index, 0).GetText()} :", "Modifier le prix", value)
+
+        # Afficher la boîte de dialogue
+        if dlg.ShowModal() == wx.ID_OK:
+            new_price = dlg.GetValue()
+            # Change in list
+            self.list_ctrl.SetItem(index, 2, new_price)
+        
+        # Change in gearsData
+        tIndex = getIndexFromName(self.gearsData,itemName)
+        self.gearsData[tIndex]["price"] = int(new_price)
+        self.toBeSync[tIndex] = self.gearsData[tIndex]
+        print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
+
+        # Close
+        dlg.Destroy()
         
 class MainFrame(wx.Frame):
     def __init__(self):
