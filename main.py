@@ -121,6 +121,10 @@ class ItemEditor(wx.Frame):
         
         # Craft done => double click columns
         
+        # Change recipe/Price gears
+        changeGearButton = wx.Button(panel, label="Modifier")
+        changeGearButton.Bind(wx.EVT_BUTTON,self.on_change_gear)
+        main_sizer.Add(changeGearButton,0,wx.ALL | wx.CENTER, 10)
         
         panel.SetSizer(main_sizer)
 
@@ -266,6 +270,9 @@ class ItemEditor(wx.Frame):
         #On fait disparaitre
         self.recipe_list.DeleteItem(index)
         
+    def on_change_gear(self,event):
+        pass
+        
 class MainFrame(wx.Frame):
     def __init__(self):
         super().__init__(None, title="Menu Principal", size=(300, 150))
@@ -324,6 +331,7 @@ class MainFrame(wx.Frame):
 
 if __name__ == "__main__":
     
+    print("====")
     app = wx.App()
     frame = MainFrame()
     frame.Show()
