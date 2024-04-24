@@ -84,17 +84,15 @@ class ItemEditor(wx.Frame):
         
         self.recipe_list = wx.ListCtrl(self.recipe_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.recipe_list.InsertColumn(0, "Nom")
-        self.recipe_list.InsertColumn(1, "Act")
-        self.recipe_list.InsertColumn(2, "Need")
+        self.recipe_list.InsertColumn(1, "Need")
         self.recipe_list.SetColumnWidth(0, 250)
         self.recipe_list.SetColumnWidth(1, 75)
-        self.recipe_list.SetColumnWidth(2, 75)
-
+        self.recipe_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_craft_done)
+        
         recipe_sizer.Add(self.recipe_list, 1, wx.EXPAND | wx.ALL, 5)
         self.recipe_tab.SetSizer(recipe_sizer)
 
-        # tab control
-        
+        # == tab control
         self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.on_tab_change)
         self.list_ctrl.Bind(wx.EVT_LIST_COL_CLICK, self.on_column_click)
         main_sizer.Add(self.notebook, 1, wx.EXPAND)
@@ -121,7 +119,7 @@ class ItemEditor(wx.Frame):
         addCraftButton.Bind(wx.EVT_BUTTON, self.addToCraft)
         main_sizer.Add(addCraftButton, 0, wx.ALL | wx.CENTER, 10)
         
-        # Craft done
+        # Craft done => double click columns
         
         
         panel.SetSizer(main_sizer)
@@ -143,8 +141,7 @@ class ItemEditor(wx.Frame):
             for item,qqt in self.ingredients.items():
                 index = self.recipe_list.InsertItem(self.recipe_list.GetItemCount(), item)
                 self.recipe_list.SetItem(index, 0 ,str(item))
-                self.recipe_list.SetItem(index, 1 ,"-1")
-                self.recipe_list.SetItem(index, 2, str(qqt))
+                self.recipe_list.SetItem(index, 1, str(qqt))
                 self.recipe_list.SetItemData(index, index)
             #if index != -1:
             #    self.on_select(wx.ListEvent(index=index))
@@ -261,7 +258,13 @@ class ItemEditor(wx.Frame):
             else:
                 self.ingredients[compoName] = compoQQT
                 
-        
+    def on_craft_done(self, event):
+        index = event.GetIndex()
+        ingredientName = event.GetText() #Jsp pourquoi
+        print("'{}' done".format(ingredientName))
+        del self.ingredients[ingredientName]
+        #On fait disparaitre
+        self.recipe_list.DeleteItem(index)
         
 class MainFrame(wx.Frame):
     def __init__(self):
