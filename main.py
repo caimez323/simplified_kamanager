@@ -33,6 +33,8 @@ class ItemEditor(wx.Frame):
         self.notebook.AddPage(self.recipe_tab, "Recette")
         self.notebook.AddPage(self.resources_tab, "Ressources")
 
+        self.Bind(wx.EVT_CHAR_HOOK, self.on_key_press)
+
         # =====================
         #       Main List
         # =====================
@@ -338,6 +340,11 @@ class ItemEditor(wx.Frame):
                 self.list_ctrl.SetItem(newIndex, 3, str(self.calcul_coeff(item)))
                 self.list_ctrl.SetItemData(newIndex, newIndex)
                 newIndex = self.list_ctrl.GetItemCount()
+                
+    def on_key_press(self,event):
+        keycode = event.GetUnicodeKey()
+        modifiers = event.GetModifiers()
+        event.Skip()
 
         
 class MainFrame(wx.Frame):
