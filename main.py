@@ -260,7 +260,7 @@ class ItemEditor(wx.Frame):
         for id,value in toBeSyncGears.items():
             to_add = {id:value}
             docID = math.floor(int(id)/1000)
-            print("Synced on database{} : {}".format(to_add))
+            #print("Synced on database{} : {}".format(to_add))
             upload_data(self.DB,"gears","common{}".format(docID),to_add)
         
         self.toBeSync = {"resources" :{},"gears" : {}}
@@ -324,7 +324,8 @@ class ItemEditor(wx.Frame):
             # Change in gearsData
             tIndex = getIndexFromName(self.gearsData,itemName)
             self.gearsData[tIndex]["price"] = int(new_price)
-            self.toBeSync[tIndex] = self.gearsData[tIndex]
+            self.toBeSync["gears"][tIndex] = self.gearsData[tIndex]
+            #print(self.toBeSync)
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
 
         # Close
