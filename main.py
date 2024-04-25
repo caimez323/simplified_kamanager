@@ -33,8 +33,13 @@ class ItemEditor(wx.Frame):
         self.notebook.AddPage(self.recipe_tab, "Recette")
         self.notebook.AddPage(self.resources_tab, "Ressources")
 
-        # Main List
-        list_sizer = wx.BoxSizer(wx.HORIZONTAL)
+        # =====================
+        #       Main List
+        # =====================
+        
+        list_sizer = wx.BoxSizer(wx.VERTICAL)
+        
+        # Main list
         self.list_ctrl = wx.ListCtrl(self.list_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.list_ctrl.InsertColumn(0, "Nom")
         self.list_ctrl.InsertColumn(1, "Niveau")
@@ -52,7 +57,15 @@ class ItemEditor(wx.Frame):
         list_sizer.Add(self.list_ctrl, 1, wx.EXPAND | wx.ALL, 5)
         self.list_tab.SetSizer(list_sizer)
 
-        # Ressource Tab
+        # Search bar
+        
+        self.list_ctrl_search = wx.SearchCtrl(self.list_tab)
+        self.list_ctrl_search.Bind(wx.EVT_TEXT, self.on_search_gears_lvl)
+        list_sizer.Add(self.list_ctrl_search, 0, wx.EXPAND | wx.ALL, 5)
+
+        # =====================
+        #       Resources
+        # =====================
         resource_sizer = wx.BoxSizer(wx.VERTICAL)
     
         self.resource_list = wx.ListCtrl(self.resources_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
@@ -63,10 +76,6 @@ class ItemEditor(wx.Frame):
 
         self.resource_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_resources_click)
         
-        # Search control
-        self.resource_search_ctrl = wx.SearchCtrl(self.resources_tab)
-        self.resource_search_ctrl.Bind(wx.EVT_TEXT, self.on_search_resources)
-        resource_sizer.Add(self.resource_search_ctrl, 0, wx.EXPAND | wx.ALL, 5)
         
         # Fill datas
         for id,item in self.resourcesData.items():
@@ -79,7 +88,16 @@ class ItemEditor(wx.Frame):
         resource_sizer.Add(self.resource_list, 1, wx.EXPAND | wx.ALL, 5)
         self.resources_tab.SetSizer(resource_sizer)
         
-        # Recipe
+        
+        # Search control
+        self.resource_search_ctrl = wx.SearchCtrl(self.resources_tab)
+        self.resource_search_ctrl.Bind(wx.EVT_TEXT, self.on_search_resources)
+        resource_sizer.Add(self.resource_search_ctrl, 0, wx.EXPAND | wx.ALL, 5)
+        
+        
+        # =====================
+        #       Recipes
+        # =====================
         recipe_sizer = wx.BoxSizer(wx.VERTICAL)
         
         self.recipe_list = wx.ListCtrl(self.recipe_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
@@ -92,12 +110,16 @@ class ItemEditor(wx.Frame):
         recipe_sizer.Add(self.recipe_list, 1, wx.EXPAND | wx.ALL, 5)
         self.recipe_tab.SetSizer(recipe_sizer)
 
-        # == tab control
+        # =====================
+        #       Tab Control
+        # =====================
         self.notebook.Bind(wx.EVT_NOTEBOOK_PAGE_CHANGED, self.on_tab_change)
         self.list_ctrl.Bind(wx.EVT_LIST_COL_CLICK, self.on_column_click)
         main_sizer.Add(self.notebook, 1, wx.EXPAND)
 
-        #==== Boutons
+        # =====================
+        #       Buttons
+        # =====================
         button_sizer = wx.GridSizer(rows=2, cols=3, hgap=5, vgap=4)
         main_sizer.Add(button_sizer,0,wx.EXPAND | wx.ALL, 5)
         
@@ -127,9 +149,6 @@ class ItemEditor(wx.Frame):
         changeGearButton = wx.Button(panel, label="Modifier")
         changeGearButton.Bind(wx.EVT_BUTTON,self.on_change_gear)
         button_sizer.Add(changeGearButton,0,wx.ALL | wx.CENTER, 10)
-        
-        
-
         
         
         panel.SetSizer(main_sizer)
@@ -308,6 +327,18 @@ class ItemEditor(wx.Frame):
 
         # Close
         dlg.Destroy()
+        
+    def on_search_gears_lvl(self,event):
+        self.list_ctrl.DeleteAllItems()  # Efface tous les éléments de la liste
+        for item in (self.gearsData.values()):
+            if int(self.list_ctrl_search.GetValue()) <= int(item["level"]):
+                newIndex = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+                self.list_ctrl.SetItem(newIndex, 1, str(item["level"]))
+                self.list_ctrl.SetItem(newIndex, 2, str(item["price"]))
+                self.list_ctrl.SetItem(newIndex, 3, str(self.calcul_coeff(item)))
+                self.list_ctrl.SetItemData(newIndex, newIndex)
+                newIndex = self.list_ctrl.GetItemCount()
+
         
 class MainFrame(wx.Frame):
     def __init__(self):
