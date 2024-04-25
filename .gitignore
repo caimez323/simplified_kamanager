@@ -1,5 +1,7 @@
 creditentials.json
-
+build
+dist
+main.spec
 test.py
 __pycache__
 *.database
