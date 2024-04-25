@@ -228,7 +228,14 @@ class ItemEditor(wx.Frame):
             to_add = {id:value}
             print("Synced : {}".format(to_add))
             upload_data(self.DB,"resources","common",to_add)
+        
         # do the same thing for gears
+        for id,value in toBeSyncGears.items():
+            to_add = {id:value}
+            docID = math.floor(int(id)/1000)
+            print("Synced on database{} : {}".format(to_add))
+            upload_data(self.DB,"gears","common{}".format(docID),to_add)
+        
         self.toBeSync = {"resources" :{},"gears" : {}}
         print("Synced DONE")
         
@@ -331,7 +338,8 @@ class MainFrame(wx.Frame):
         editor_frame.Show()  # Affiche la fenêtre de l'éditeur d'objets
         
     def load_database(self,event):
-        self.db = load_config()
+        if self.db == None:
+            self.db = load_config()
         #Load ressources
         resources = get_data(self.db,"resources","common")
         gears = {}
@@ -354,7 +362,6 @@ class MainFrame(wx.Frame):
 
 if __name__ == "__main__":
     
-    print("====")
     app = wx.App()
     frame = MainFrame()
     frame.Show()
