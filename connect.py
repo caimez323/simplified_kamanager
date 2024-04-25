@@ -19,9 +19,9 @@ if __name__ == "__main__":
     cred = credentials.Certificate("creditentials.json")
     firebase_admin.initialize_app(cred,{'databaseURL': os.getenv("DATABASE_URL")})
     db = firestore.client()
-
+"""  
     doc_ref = db.collection("resources").document("common")
-    """
+    
     with open("resources_format.json",'r',encoding="utf-8") as file:
         data = json.load(file)
 
@@ -31,6 +31,7 @@ if __name__ == "__main__":
         print(to_add)
         doc_ref.update(to_add)
         
+  
     with open("gears_format.json",'r',encoding="utf-8") as file:
         data = json.load(file)
 

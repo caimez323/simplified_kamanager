@@ -11,7 +11,7 @@ def getIndexFromName(dataDic,name):
 
 class ItemEditor(wx.Frame):
     def __init__(self, parent, gearsData, resourcesData,DB):
-        super().__init__(parent, title="Éditeur d'objet", size=(800, 600))
+        super().__init__(parent, title="Éditeur d'objet", size=(500, 600))
         panel = wx.Panel(self)
         main_sizer = wx.BoxSizer(wx.VERTICAL)
         
@@ -58,7 +58,7 @@ class ItemEditor(wx.Frame):
         self.resource_list = wx.ListCtrl(self.resources_tab, style=wx.LC_REPORT | wx.LC_SINGLE_SEL)
         self.resource_list.InsertColumn(0, "Nom")
         self.resource_list.InsertColumn(1, "Prix")
-        self.resource_list.SetColumnWidth(0, 450)
+        self.resource_list.SetColumnWidth(0, 250)
         self.resource_list.SetColumnWidth(1, 100)
 
         self.resource_list.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_resources_click)
@@ -98,33 +98,39 @@ class ItemEditor(wx.Frame):
         main_sizer.Add(self.notebook, 1, wx.EXPAND)
 
         #==== Boutons
-
+        button_sizer = wx.GridSizer(rows=2, cols=3, hgap=5, vgap=4)
+        main_sizer.Add(button_sizer,0,wx.EXPAND | wx.ALL, 5)
+        
         # Afficher les éléments dans la console
         show_items_button = wx.Button(panel, label="Afficher les éléments dans la console")
         show_items_button.Bind(wx.EVT_BUTTON, self.on_show_items)
-        main_sizer.Add(show_items_button, 0, wx.ALL | wx.CENTER, 10)
+        #button_sizer.Add(show_items_button, 0, wx.ALL | wx.CENTER, 10)
 
         # Enlever l'état caché de tous les éléments
-        display_all_button = wx.Button(panel, label="Afficher toutes les lignes cachées")
+        display_all_button = wx.Button(panel, label="Re-afficher l.cachées")
         display_all_button.Bind(wx.EVT_BUTTON, self.on_redisplay_all)
-        main_sizer.Add(display_all_button, 0, wx.ALL | wx.CENTER, 10)
+        button_sizer.Add(display_all_button, 0, wx.ALL | wx.CENTER, 10)
 
         # Sync button
         sync_button = wx.Button(panel, label="SYNC")
         sync_button.Bind(wx.EVT_BUTTON, self.sync_request_data_res)
-        main_sizer.Add(sync_button, 0, wx.ALL | wx.CENTER, 10)
+        button_sizer.Add(sync_button, 0, wx.ALL | wx.CENTER, 10)
         
         # Add to craft
         addCraftButton = wx.Button(panel, label="Craft")
         addCraftButton.Bind(wx.EVT_BUTTON, self.addToCraft)
-        main_sizer.Add(addCraftButton, 0, wx.ALL | wx.CENTER, 10)
+        button_sizer.Add(addCraftButton, 0, wx.ALL | wx.CENTER, 10)
         
         # Craft done => double click columns
         
         # Change recipe/Price gears
         changeGearButton = wx.Button(panel, label="Modifier")
         changeGearButton.Bind(wx.EVT_BUTTON,self.on_change_gear)
-        main_sizer.Add(changeGearButton,0,wx.ALL | wx.CENTER, 10)
+        button_sizer.Add(changeGearButton,0,wx.ALL | wx.CENTER, 10)
+        
+        
+
+        
         
         panel.SetSizer(main_sizer)
 
@@ -294,11 +300,11 @@ class ItemEditor(wx.Frame):
             # Change in list
             self.list_ctrl.SetItem(index, 2, new_price)
         
-        # Change in gearsData
-        tIndex = getIndexFromName(self.gearsData,itemName)
-        self.gearsData[tIndex]["price"] = int(new_price)
-        self.toBeSync[tIndex] = self.gearsData[tIndex]
-        print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
+            # Change in gearsData
+            tIndex = getIndexFromName(self.gearsData,itemName)
+            self.gearsData[tIndex]["price"] = int(new_price)
+            self.toBeSync[tIndex] = self.gearsData[tIndex]
+            print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
 
         # Close
         dlg.Destroy()
