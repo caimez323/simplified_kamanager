@@ -260,7 +260,7 @@ class ItemEditor(wx.Frame):
         for id,value in toBeSyncGears.items():
             to_add = {id:value}
             docID = math.floor(int(id)/1000)
-            #print("Synced on database{} : {}".format(to_add))
+            print("Synced on database{} : [{}:{}]".format(docID,to_add[id]["name"],to_add[id]["price"]))
             upload_data(self.DB,"gears","common{}".format(docID),to_add)
         
         self.toBeSync = {"resources" :{},"gears" : {}}
