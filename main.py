@@ -347,18 +347,27 @@ class ItemEditor(wx.Frame):
         modifiers = event.GetModifiers()
         tabNumber = self.notebook.GetSelection()
         #print(keycode,modifiers)
+        
+        
         # 1 2 & 3 can swap tab
+        if keycode == 49 :
+            self.notebook.Selection = 0
+        elif keycode == 50:
+            self.notebook.Selection = 1
+        elif keycode == 51:
+            self.notebook.Selection = 2
         
         
+        # ctrl + s sync
+        elif keycode == 83 and modifiers == 2:
+            self.sync_request_data_res(event)
         # arrow can move selection ?
         
-        # ctrl+c modification
+        # ctrl + c modification
         
-        
-        # ctrl +s sync
         
         # ctrl + e add craft
-        if keycode == 69 and modifiers == 2 and tabNumber == 0 and self.list_ctrl.GetFirstSelected() != -1:
+        elif keycode == 69 and modifiers == 2 and tabNumber == 0 and self.list_ctrl.GetFirstSelected() != -1:
             self.addToCraft(event)
         event.Skip()
 
