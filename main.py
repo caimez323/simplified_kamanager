@@ -260,7 +260,7 @@ class ItemEditor(wx.Frame):
         for id,value in toBeSyncGears.items():
             to_add = {id:value}
             docID = math.floor(int(id)/1000)
-            print("Synced on database{} : [{}:{}]".format(docID,to_add[id]["name"],to_add[id]["price"]))
+            print("Synced on database{} : [{} : {}]".format(docID,to_add[id]["name"],to_add[id]["price"]))
             upload_data(self.DB,"gears","common{}".format(docID),to_add)
         
         self.toBeSync = {"resources" :{},"gears" : {}}
@@ -345,6 +345,21 @@ class ItemEditor(wx.Frame):
     def on_key_press(self,event):
         keycode = event.GetUnicodeKey()
         modifiers = event.GetModifiers()
+        tabNumber = self.notebook.GetSelection()
+        #print(keycode,modifiers)
+        # 1 2 & 3 can swap tab
+        
+        
+        # arrow can move selection ?
+        
+        # ctrl+c modification
+        
+        
+        # ctrl +s sync
+        
+        # ctrl + e add craft
+        if keycode == 69 and modifiers == 2 and tabNumber == 0 and self.list_ctrl.GetFirstSelected() != -1:
+            self.addToCraft(event)
         event.Skip()
 
         
