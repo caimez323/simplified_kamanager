@@ -10,7 +10,7 @@ with open("gears_format.json",encoding="utf-8") as gearsFile:
     
     for id,res in gearsData.items():
         recipeL = len(res["recipe"])
-        if recipeL<=1:
+        if recipeL<=2:
             print(res)
 
 

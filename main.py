@@ -335,15 +335,36 @@ class ItemEditor(wx.Frame):
         dlg.Destroy()
         
     def on_search_gears_lvl(self,event):
-        self.list_ctrl.DeleteAllItems()  # Efface tous les éléments de la liste
-        for item in (self.gearsData.values()):
-            if int(self.list_ctrl_search.GetValue()) <= int(item["level"]):
-                newIndex = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
-                self.list_ctrl.SetItem(newIndex, 1, str(item["level"]))
-                self.list_ctrl.SetItem(newIndex, 2, str(item["price"]))
-                self.list_ctrl.SetItem(newIndex, 3, str(self.calcul_coeff(item)))
-                self.list_ctrl.SetItemData(newIndex, newIndex)
-                newIndex = self.list_ctrl.GetItemCount()
+        
+        search = self.list_ctrl_search.GetValue()
+        if search == "" or search == None or not search:
+            return
+        isInt = False
+        self.list_ctrl.DeleteAllItems()  # Efface tous les éléments de la liste    
+        try:
+            int(search)
+            isInt = True
+        except ValueError:
+            isInt = False
+        if isInt:
+            for item in (self.gearsData.values()):
+                if int(self.list_ctrl_search.GetValue()) <= int(item["level"]):
+                    newIndex = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+                    self.list_ctrl.SetItem(newIndex, 1, str(item["level"]))
+                    self.list_ctrl.SetItem(newIndex, 2, str(item["price"]))
+                    self.list_ctrl.SetItem(newIndex, 3, str(self.calcul_coeff(item)))
+                    self.list_ctrl.SetItemData(newIndex, newIndex)
+                    newIndex = self.list_ctrl.GetItemCount()
+        else:
+            for item in self.gearsData.values():
+                if search.lower() in item["name"].lower():
+                    newIndex = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+                    self.list_ctrl.SetItem(newIndex, 1, str(item["level"]))
+                    self.list_ctrl.SetItem(newIndex, 2, str(item["price"]))
+                    self.list_ctrl.SetItem(newIndex, 3, str(self.calcul_coeff(item)))
+                    self.list_ctrl.SetItemData(newIndex, newIndex)
+                    newIndex = self.list_ctrl.GetItemCount()
+            
                 
     def on_key_press(self,event):
         keycode = event.GetUnicodeKey()
