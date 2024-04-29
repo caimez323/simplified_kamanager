@@ -349,7 +349,7 @@ class ItemEditor(wx.Frame):
         keycode = event.GetUnicodeKey()
         modifiers = event.GetModifiers()
         tabNumber = self.notebook.GetSelection()
-        print(keycode,modifiers)
+        #print(keycode,modifiers)
         
         
         # 1 2 & 3 can swap tab

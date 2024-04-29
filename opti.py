@@ -9,10 +9,12 @@ with open("gears_format.json",encoding="utf-8") as gearsFile:
     gearsData = json.load(gearsFile)
     
     for id,res in gearsData.items():
-        recipe = res["recipe"]
-        for compo in recipe:
-            idUsed.append(compo["id"])
-        
+        recipeL = len(res["recipe"])
+        if recipeL<=1:
+            print(res)
+
+
+"""       
 with open("resources_format.json",encoding="utf-8") as resourcesFile:
     resourcesData = json.load(resourcesFile)
     
@@ -25,4 +27,4 @@ with open("resources_format.json",encoding="utf-8") as resourcesFile:
 
 with open("resources_format.json","w",encoding="utf-8") as file:
     json.dump(replaced_data, file, ensure_ascii=False, indent=4)
-
+"""
