@@ -49,6 +49,7 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.InsertColumn(3, "Coefficient")
         self.list_ctrl.SetColumnWidth(0, 200)
         self.list_ctrl.Bind(wx.EVT_LIST_ITEM_ACTIVATED, self.on_toggle_hidden)
+        
         for id,item in self.gearsData.items():
             index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
             self.list_ctrl.SetItem(index, 1, str(item["level"]))
@@ -278,6 +279,7 @@ class ItemEditor(wx.Frame):
 
         # Afficher la boîte de dialogue
         if dlg.ShowModal() == wx.ID_OK:
+            
             new_price = dlg.GetValue()
             self.resource_list.SetItem(index, 1, new_price)
             # Changer dans la var self.resourcesData
@@ -285,6 +287,15 @@ class ItemEditor(wx.Frame):
             self.resourcesData[tIndex]["price"] = int(new_price)
             self.toBeSync["resources"][tIndex] = self.resourcesData[tIndex]
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
+            
+            self.list_ctrl.DeleteAllItems()
+            #reprint coef
+            for id,item in self.gearsData.items():
+                index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+                self.list_ctrl.SetItem(index, 1, str(item["level"]))
+                self.list_ctrl.SetItem(index, 2, str(item["price"]))
+                self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
+                self.list_ctrl.SetItemData(index, index)
         # Close
         dlg.Destroy()
         
