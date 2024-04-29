@@ -267,8 +267,11 @@ class ItemEditor(wx.Frame):
         print("Synced DONE")
         
     def on_resources_click(self,event):
-        index = event.GetIndex()
+        index = self.resource_list.GetFirstSelected()
+        itemName = self.resource_list.GetItem(index, 0).GetText()
         value = self.resource_list.GetItem(index, 1).GetText()
+        #index = event.GetIndex()
+        #value = self.resource_list.GetItem(index, 1).GetText()
 
         # Créer une boîte de dialogue pour modifier le prix
         dlg = wx.TextEntryDialog(self, f"Entrez le nouveau prix pour {self.resource_list.GetItem(index, 0).GetText()} :", "Modifier le prix", value)
@@ -346,7 +349,7 @@ class ItemEditor(wx.Frame):
         keycode = event.GetUnicodeKey()
         modifiers = event.GetModifiers()
         tabNumber = self.notebook.GetSelection()
-        #print(keycode,modifiers)
+        print(keycode,modifiers)
         
         
         # 1 2 & 3 can swap tab
@@ -361,10 +364,15 @@ class ItemEditor(wx.Frame):
         # ctrl + s sync
         elif keycode == 83 and modifiers == 2:
             self.sync_request_data_res(event)
-        # arrow can move selection ?
+        # arrow can move selection 
         
         # ctrl + c modification
-        
+        elif keycode == 67 and modifiers == 2:
+            if tabNumber == 0:
+                self.on_change_gear(event)
+            elif tabNumber == 2:
+                self.on_resources_click(event)
+                
         
         # ctrl + e add craft
         elif keycode == 69 and modifiers == 2 and tabNumber == 0 and self.list_ctrl.GetFirstSelected() != -1:
