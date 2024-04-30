@@ -290,7 +290,7 @@ class ItemEditor(wx.Frame):
             
             self.list_ctrl.DeleteAllItems()
             #reprint coef
-            for id,item in self.gearsData.items():
+            for _,item in self.gearsData.items():
                 index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
                 self.list_ctrl.SetItem(index, 1, str(item["level"]))
                 self.list_ctrl.SetItem(index, 2, str(item["price"]))
@@ -375,13 +375,12 @@ class ItemEditor(wx.Frame):
                     self.list_ctrl.SetItem(newIndex, 3, str(self.calcul_coeff(item)))
                     self.list_ctrl.SetItemData(newIndex, newIndex)
                     newIndex = self.list_ctrl.GetItemCount()
-            
-                
+                     
     def on_key_press(self,event):
         keycode = event.GetUnicodeKey()
         modifiers = event.GetModifiers()
         tabNumber = self.notebook.GetSelection()
-        #print(keycode,modifiers)
+        print(keycode,modifiers)
         
         
         # 1 2 & 3 can swap tab
@@ -398,8 +397,8 @@ class ItemEditor(wx.Frame):
             self.sync_request_data_res(event)
         # arrow can move selection 
         
-        # ctrl + c modification
-        elif keycode == 67 and modifiers == 2:
+        # ctrl + b modification
+        elif keycode == 66 and modifiers == 2:
             if tabNumber == 0:
                 self.on_change_gear(event)
             elif tabNumber == 2:
@@ -476,7 +475,6 @@ def printName():
 if __name__ == "__main__":
     
     printName()
-
     app = wx.App()
     frame = MainFrame()
     frame.Show()
