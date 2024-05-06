@@ -287,17 +287,20 @@ class ItemEditor(wx.Frame):
             self.resourcesData[tIndex]["price"] = int(new_price)
             self.toBeSync["resources"][tIndex] = self.resourcesData[tIndex]
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
+            self.refresh_gears(event)
             
-            self.list_ctrl.DeleteAllItems()
-            #reprint coef
-            for _,item in self.gearsData.items():
-                index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
-                self.list_ctrl.SetItem(index, 1, str(item["level"]))
-                self.list_ctrl.SetItem(index, 2, str(item["price"]))
-                self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
-                self.list_ctrl.SetItemData(index, index)
         # Close
         dlg.Destroy()
+
+    def refresh_gears(self,event):
+        self.list_ctrl.DeleteAllItems()
+        #reprint coef
+        for _,item in self.gearsData.items():
+            index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+            self.list_ctrl.SetItem(index, 1, str(item["level"]))
+            self.list_ctrl.SetItem(index, 2, str(item["price"]))
+            self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
+            self.list_ctrl.SetItemData(index, index)
         
     def addToCraft(self,event):
         index = self.list_ctrl.GetFirstSelected()
@@ -322,10 +325,14 @@ class ItemEditor(wx.Frame):
         self.recipe_list.DeleteItem(index)
         
     def on_change_gear(self,event):
+        if self.notebook.Selection == 2:
+            self.on_resources_click(event)
+            return
+    
         index = self.list_ctrl.GetFirstSelected()
         value = self.list_ctrl.GetItem(index, 2).GetText()
         itemName = self.list_ctrl.GetItem(index, 0).GetText()
-
+        
         # Créer une boîte de dialogue pour modifier le prix
         dlg = wx.TextEntryDialog(self, f"Entrez le nouveau prix pour {self.list_ctrl.GetItem(index, 0).GetText()} :", "Modifier le prix", value)
 
@@ -380,7 +387,7 @@ class ItemEditor(wx.Frame):
         keycode = event.GetUnicodeKey()
         modifiers = event.GetModifiers()
         tabNumber = self.notebook.GetSelection()
-        print(keycode,modifiers)
+        #print(keycode,modifiers)
         
         
         # 1 2 & 3 can swap tab
