@@ -348,6 +348,7 @@ class ItemEditor(wx.Frame):
             self.toBeSync["gears"][tIndex] = self.gearsData[tIndex]
             #print(self.toBeSync)
             print("Modification effectuée dans le cache => Pour la partager, utilisez SYNC")
+            self.refresh_gears(event)
 
         # Close
         dlg.Destroy()
