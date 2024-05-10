@@ -293,6 +293,9 @@ class ItemEditor(wx.Frame):
         dlg.Destroy()
 
     def refresh_gears(self,event):
+        #need to keep search  bar and sort
+        searchValue = self.list_ctrl_search.GetValue() 
+        
         self.list_ctrl.DeleteAllItems()
         #reprint coef
         for _,item in self.gearsData.items():
@@ -301,6 +304,8 @@ class ItemEditor(wx.Frame):
             self.list_ctrl.SetItem(index, 2, str(item["price"]))
             self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
             self.list_ctrl.SetItemData(index, index)
+        self.list_ctrl_search.SetValue(searchValue)
+        self.sort_items()
         
     def addToCraft(self,event):
         index = self.list_ctrl.GetFirstSelected()
