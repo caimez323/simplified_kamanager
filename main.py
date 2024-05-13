@@ -171,10 +171,18 @@ class ItemEditor(wx.Frame):
         if selection == 1: # Recipe
             #index = self.recipe_list.GetFirstSelected()
             for item,qqt in self.ingredients.items():
-                index = self.recipe_list.InsertItem(self.recipe_list.GetItemCount(), item)
-                self.recipe_list.SetItem(index, 0 ,str(item))
-                self.recipe_list.SetItem(index, 1, str(qqt))
-                self.recipe_list.SetItemData(index, index)
+                if qqt<0:
+                    index = self.recipe_list.InsertItem(self.recipe_list.GetItemCount(), item)
+                    self.recipe_list.SetItem(index, 0 ,str(item))
+                    self.recipe_list.SetItem(index, 1, str(-qqt))
+                    self.recipe_list.SetItemFont(index, wx.Font(10, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_BOLD))
+                    
+            for item,qqt in self.ingredients.items():
+                if qqt>0:
+                    index = self.recipe_list.InsertItem(self.recipe_list.GetItemCount(), item)
+                    self.recipe_list.SetItem(index, 1 ,str(qqt))
+                    self.recipe_list.SetItemFont(index, wx.NullFont)
+                    self.recipe_list.SetItemData(index, index)
             #if index != -1:
             #    self.on_select(wx.ListEvent(index=index))
 
@@ -311,6 +319,11 @@ class ItemEditor(wx.Frame):
         index = self.list_ctrl.GetFirstSelected()
         itemName = self.list_ctrl.GetItem(index, 0).GetText()
         item = self.gearsData[getIndexFromName(self.gearsData,itemName)]
+
+        if itemName in self.ingredients:
+            self.ingredients[itemName] -= 1
+        else:
+            self.ingredients[itemName] = -1
         
         for component in item["recipe"]:
             compoName = self.resourcesData[component["id"]]["name"]
@@ -320,6 +333,8 @@ class ItemEditor(wx.Frame):
                 self.ingredients[compoName] += compoQQT
             else:
                 self.ingredients[compoName] = compoQQT
+            
+
                 
     def on_craft_done(self, event):
         index = event.GetIndex()
