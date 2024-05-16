@@ -206,13 +206,14 @@ class ItemEditor(wx.Frame):
 
     def sort_items(self):
         items = [(self.list_ctrl.GetItemData(i), self.list_ctrl.GetItemText(i), int(self.list_ctrl.GetItem(i, 1).GetText()), int(self.list_ctrl.GetItem(i, 2).GetText()), int(self.list_ctrl.GetItem(i, 3).GetText()), i) for i in range(self.list_ctrl.GetItemCount())]
-        items = sorted(items, key= lambda x: x[self.sort_column], reverse = self.sort_order)
+        if self.sort_column != None:
+            items = sorted(items, key= lambda x: x[self.sort_column], reverse = self.sort_order)
 
-        for i, (_, name, level, price, coeff, index) in enumerate(items):
-            self.list_ctrl.SetItem(i, 0, name)
-            self.list_ctrl.SetItem(i, 1, str(level))
-            self.list_ctrl.SetItem(i, 2, str(price))
-            self.list_ctrl.SetItem(i, 3, str(coeff))
+            for i, (_, name, level, price, coeff, index) in enumerate(items):
+                self.list_ctrl.SetItem(i, 0, name)
+                self.list_ctrl.SetItem(i, 1, str(level))
+                self.list_ctrl.SetItem(i, 2, str(price))
+                self.list_ctrl.SetItem(i, 3, str(coeff))
 
     def on_toggle_hidden(self, event):
         index = event.GetIndex()
@@ -299,11 +300,12 @@ class ItemEditor(wx.Frame):
         self.list_ctrl.DeleteAllItems()
         #reprint coef
         for _,item in self.gearsData.items():
-            index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
-            self.list_ctrl.SetItem(index, 1, str(item["level"]))
-            self.list_ctrl.SetItem(index, 2, str(item["price"]))
-            self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
-            self.list_ctrl.SetItemData(index, index)
+            if not item["hidden"]:
+                index = self.list_ctrl.InsertItem(self.list_ctrl.GetItemCount(), item["name"])
+                self.list_ctrl.SetItem(index, 1, str(item["level"]))
+                self.list_ctrl.SetItem(index, 2, str(item["price"]))
+                self.list_ctrl.SetItem(index, 3, str(self.calcul_coeff(item)))
+                self.list_ctrl.SetItemData(index, index)
         self.list_ctrl_search.SetValue(searchValue)
         self.sort_items()
         
